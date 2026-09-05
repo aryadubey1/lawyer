@@ -43,6 +43,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 theme/static_src/node_modules/
+theme/static_src/package-lock.json
+theme/static/css/dist/
 
 # IDE
 .vscode/
