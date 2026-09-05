@@ -2,6 +2,7 @@
 Admin configuration for SiteConfig singleton.
 """
 from django.contrib import admin
+from django.shortcuts import redirect
 from apps.core.models.site_config import SiteConfig
 
 
@@ -56,3 +57,5 @@ class SiteConfigAdmin(admin.ModelAdmin):
 
     def changelist_view(self, request, extra_context=None):
         """Redirect the changelist directly to the singleton instance."""
+        obj = SiteConfig.get_solo()
+        return redirect(f'../{obj.pk}/change/')
