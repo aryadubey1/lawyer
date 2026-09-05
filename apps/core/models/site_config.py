@@ -97,7 +97,9 @@ class SiteConfig(models.Model):
         help_text=(
             '1. Start a conversation with your bot on Telegram. '
             '2. Visit https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates '
-            '3. Copy the "chat":{"id": ...} value.'
+            '3. Copy the "chat":{"id": ...} value. '
+            'To notify multiple people, separate their chat IDs with a comma '
+            '(e.g. 123456789,987654321) — each person must message the bot at least once first.'
         ),
     )
 

@@ -68,30 +68,31 @@ class TelegramNotifier:
                 'Telegram notification skipped: bot_token or chat_id not configured in SiteConfig.'
             )
             return False
-
         message = self.build_message(submission)
         url = self.TELEGRAM_API_URL.format(token=self.bot_token)
-
-        try:
-            response = requests.post(
-                url,
-                json={
-                    'chat_id': self.chat_id,
-                    'text': message,
-                    'parse_mode': 'Markdown',
-                    'disable_web_page_preview': True,
-                },
-                timeout=10,
-            )
-            response.raise_for_status()
-            logger.info(f'Telegram notification sent for submission #{submission.pk}')
-            return True
-
-        except requests.exceptions.Timeout:
-            logger.error(f'Telegram API timeout for submission #{submission.pk}')
-        except requests.exceptions.HTTPError as e:
-            logger.error(f'Telegram API HTTP error for submission #{submission.pk}: {e}')
-        except requests.exceptions.RequestException as e:
-            logger.error(f'Telegram API error for submission #{submission.pk}: {e}')
-
-        return False
+        chat_ids = [cid.strip() for cid in self.chat_id.split(',') if cid.strip()]
+        all_succeeded = True
+        for cid in chat_ids:
+            try:
+                response = requests.post(
+                    url,
+                    json={
+                        'chat_id': cid,
+                        'text': message,
+                        'parse_mode': 'Markdown',
+                        'disable_web_page_preview': True,
+                    },
+                    timeout=10,
+                )
+                response.raise_for_status()
+                logger.info(f'Telegram notification sent to {cid} for submission #{submission.pk}')
+            except requests.exceptions.Timeout:
+                logger.error(f'Telegram API timeout for chat {cid}, submission #{submission.pk}')
+                all_succeeded = False
+            except requests.exceptions.HTTPError as e:
+                logger.error(f'Telegram API HTTP error for chat {cid}, submission #{submission.pk}: {e}')
+                all_succeeded = False
+            except requests.exceptions.RequestException as e:
+                logger.error(f'Telegram API error for chat {cid}, submission #{submission.pk}: {e}')
+                all_succeeded = False
+        return all_succeeded
