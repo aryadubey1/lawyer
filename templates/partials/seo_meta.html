@@ -18,3 +18,32 @@
 
 <!-- Canonical -->
 <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+
+<!-- Structured Data: LegalService (helps local search & rich results) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "{{ site_config.firm_name|escapejs }}",
+  "description": "{{ site_config.firm_tagline|escapejs }}",
+  {% if site_config.logo %}"image": "{{ site_config.logo.url }}",{% endif %}
+  "url": "{{ request.scheme }}://{{ request.get_host }}",
+  {% if site_config.phone_primary %}"telephone": "{{ site_config.phone_primary|escapejs }}",{% endif %}
+  {% if site_config.email_primary %}"email": "{{ site_config.email_primary|escapejs }}",{% endif %}
+  "address": {
+    "@type": "PostalAddress",
+    {% if site_config.address_line_1 %}"streetAddress": "{{ site_config.address_line_1|escapejs }}{% if site_config.address_line_2 %}, {{ site_config.address_line_2|escapejs }}{% endif %}",{% endif %}
+    {% if site_config.city %}"addressLocality": "{{ site_config.city|escapejs }}",{% endif %}
+    {% if site_config.state %}"addressRegion": "{{ site_config.state|escapejs }}",{% endif %}
+    {% if site_config.pincode %}"postalCode": "{{ site_config.pincode|escapejs }}",{% endif %}
+    "addressCountry": "IN"
+  }{% if site_config.office_hours %},
+  "openingHours": "{{ site_config.office_hours|escapejs }}"{% endif %}{% if site_config.facebook_url or site_config.linkedin_url or site_config.twitter_url or site_config.instagram_url %},
+  "sameAs": [
+    {% if site_config.facebook_url %}"{{ site_config.facebook_url }}"{% if site_config.linkedin_url or site_config.twitter_url or site_config.instagram_url %},{% endif %}{% endif %}
+    {% if site_config.linkedin_url %}"{{ site_config.linkedin_url }}"{% if site_config.twitter_url or site_config.instagram_url %},{% endif %}{% endif %}
+    {% if site_config.twitter_url %}"{{ site_config.twitter_url }}"{% if site_config.instagram_url %},{% endif %}{% endif %}
+    {% if site_config.instagram_url %}"{{ site_config.instagram_url }}"{% endif %}
+  ]{% endif %}
+}
+</script>
