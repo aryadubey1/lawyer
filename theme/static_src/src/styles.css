@@ -173,7 +173,7 @@
 
   /* ─── Gallery ─────────────────────────────────────────────────── */
   .gallery-item {
-    @apply relative overflow-hidden rounded cursor-pointer group;
+    @apply relative overflow-hidden rounded cursor-pointer;
   }
 
   .gallery-item img {
@@ -200,7 +200,7 @@
 
   /* ─── Practice Area Card ──────────────────────────────────────── */
   .pa-card {
-    @apply card p-8 flex flex-col gap-4 group;
+    @apply card p-8 flex flex-col gap-4;
   }
 
   .pa-card .icon-wrap {
@@ -231,7 +231,7 @@
 
   /* ─── Team Card ───────────────────────────────────────────────── */
   .team-card {
-    @apply card overflow-hidden text-center group;
+    @apply card overflow-hidden text-center;
   }
 
   .team-card .photo-wrap {
