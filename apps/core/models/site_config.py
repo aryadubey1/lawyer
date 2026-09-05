@@ -3,6 +3,7 @@ SiteConfig — singleton model holding all firm-wide settings.
 Enforces singleton pattern via save() override (always pk=1).
 """
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class SiteConfig(models.Model):
@@ -13,6 +14,13 @@ class SiteConfig(models.Model):
     """
 
     # ─── Firm Identity ─────────────────────────────────────────────────────────
+    logo = CloudinaryField(
+        'Firm Logo',
+        folder='lex_chambers/branding/',
+        blank=True,
+        null=True,
+        help_text='Displayed next to the firm name in the navbar. Recommended: square or circular, transparent background, at least 200×200px.',
+    )
     firm_name = models.CharField(
         max_length=200,
         default='Subhash Mishra & Associates',

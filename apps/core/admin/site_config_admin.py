@@ -15,7 +15,7 @@ class SiteConfigAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Firm Identity', {
-            'fields': ('firm_name', 'firm_tagline', 'footer_about_text'),
+            'fields': ('logo', 'firm_name', 'firm_tagline', 'footer_about_text'),
         }),
         ('Contact Information', {
             'fields': (
