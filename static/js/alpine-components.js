@@ -11,7 +11,7 @@ function heroCarousel(slideCount) {
     total: slideCount,
     autoplayInterval: null,
     paused: false,
-    AUTOPLAY_MS: 6000,
+    AUTOPLAY_MS: 3000,
 
     init() {
       this.startAutoplay();
