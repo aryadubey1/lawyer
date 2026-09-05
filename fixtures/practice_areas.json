@@ -1,0 +1,194 @@
+[
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 1,
+    "fields": {
+      "title": "Constitutional Law & Writs",
+      "slug": "constitutional-law-writs",
+      "short_description": "Litigation under Articles 32 and 226 of the Constitution of India challenging arbitrary state actions, tender cancellations, and fundamental rights violations.",
+      "full_description": "<p>Constitutional litigation forms the bedrock of our chambers' advocacy practice. We represent corporate entities, industry associations, civil servants, and citizens before the Supreme Court of India and High Courts in writ petitions seeking Mandamus, Certiorari, Prohibition, and Quo Warranto.</p><p>Our advocates have extensive experience in challenging ultra vires legislation, statutory notifications, administrative overreach, and discriminatory governmental policies in public procurement and public-private partnerships.</p><p>We provide swift emergency interim relief applications for staying coercive state actions, asset seizures, and unconstitutional executive mandates.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Constitutional law book and gavel",
+      "order": 1,
+      "is_active": true,
+      "meta_title": "Constitutional Law & Writ Jurisdiction | Subhash Mishra & Associates",
+      "meta_description": "Expert constitutional advocates in India representing matters under Articles 32 and 226 before High Courts and Supreme Court."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 2,
+    "fields": {
+      "title": "Corporate & Competition Law",
+      "slug": "corporate-competition-law",
+      "short_description": "Advisory and representation on mergers, joint ventures, shareholder disputes, CCI investigations, and anti-trust litigation under the Competition Act.",
+      "full_description": "<p>Our Corporate & Competition practice counsels domestic enterprises, multinationals, and startups through complex transactions and regulatory scrutiny by the Competition Commission of India (CCI) and the NCLAT.</p><p>We advise on abuse of dominance investigations, cartel allegations, merger control clearances, and restrictive trade practices.</p><p>Additionally, we handle hostile shareholder litigation, oppression and mismanagement petitions under Section 241/242 of the Companies Act, and board advisory.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Corporate skyscrapers and boardroom meeting",
+      "order": 2,
+      "is_active": true,
+      "meta_title": "Corporate & Competition Law Attorneys | Subhash Mishra & Associates",
+      "meta_description": "Corporate litigation, CCI antitrust defense, shareholder disputes, and NCLAT representation."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 3,
+    "fields": {
+      "title": "Banking & Financial Disputes",
+      "slug": "banking-financial-disputes",
+      "short_description": "Representation before DRT, DRAT, High Courts, and Supreme Court in SARFAESI proceedings, loan recoveries, and structured finance disputes.",
+      "full_description": "<p>Subhash Mishra & Associates maintains a formidable banking litigation desk representing both leading financial institutions and commercial borrowers in complex debt recovery and asset reconstruction matters.</p><p>We routinely appear before Debt Recovery Tribunals (DRT), Debt Recovery Appellate Tribunals (DRAT), and High Courts in matters involving SARFAESI actions, section 13(2) notices, and possession challenges.</p><p>Our team also advises on syndicated lending disputes, guarantees enforcement, willful defaulter declarations, and RBI regulatory compliance.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Banking and finance calculations and legal documents",
+      "order": 3,
+      "is_active": true,
+      "meta_title": "Banking Litigation & SARFAESI Law | Subhash Mishra & Associates",
+      "meta_description": "DRT, DRAT, and High Court banking representation for lenders and borrowers in India."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 4,
+    "fields": {
+      "title": "Intellectual Property Law",
+      "slug": "intellectual-property-law",
+      "short_description": "Trademark, patent, copyright, and trade secret infringement litigation, IP portfolio management, and opposition proceedings.",
+      "full_description": "<p>In an increasingly knowledge-driven economy, protecting intangible assets is paramount. We handle patent, trademark, design, and copyright enforcement across India.</p><p>We secure ex-parte ad-interim injunctions, Anton Piller orders (search and seizure), and damages for trademark passing-off, counterfeit operations, and digital copyright piracy.</p><p>Our IP lawyers also handle opposition and rectification hearings before the Trade Marks Registry and Intellectual Property Appellate divisions of High Courts.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Intellectual property patent filing and brand protection",
+      "order": 4,
+      "is_active": true,
+      "meta_title": "Intellectual Property & Trademark Litigation",
+      "meta_description": "Patent and trademark infringement defense, injunctions, and IP portfolio advisory in India."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 5,
+    "fields": {
+      "title": "Consumer Protection Law",
+      "slug": "consumer-protection-law",
+      "short_description": "Defending corporations and advising aggrieved consumers before District, State, and National Consumer Commissions (NCDRC).",
+      "full_description": "<p>Under the Consumer Protection Act, 2019, consumer forums wield substantial authority with punitive damages and class action provisions. We advise businesses on compliance and product liability defense.</p><p>Our litigators regularly appear before the District Consumer Disputes Redressal Commissions, State Commissions, and the National Consumer Disputes Redressal Commission (NCDRC) in New Delhi.</p><p>We handle cases spanning real estate builder-buyer disputes, insurance claim repudiations, medical negligence defenses, and unfair trade practices.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Consumer rights and product liability balance scale",
+      "order": 5,
+      "is_active": true,
+      "meta_title": "Consumer Protection & NCDRC Advocates | Subhash Mishra & Associates",
+      "meta_description": "State Commission and NCDRC legal representation for consumer disputes in India."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 6,
+    "fields": {
+      "title": "Insolvency & Bankruptcy (IBC)",
+      "slug": "insolvency-bankruptcy-ibc",
+      "short_description": "Handling Corporate Insolvency Resolution Processes (CIRP), liquidation proceedings, and Section 7/9/10 petitions before NCLT and NCLAT.",
+      "full_description": "<p>The Insolvency and Bankruptcy Code, 2016 (IBC) has redefined corporate debt resolution in India. We represent Financial Creditors, Operational Creditors, Resolution Applicants, and Resolution Professionals.</p><p>We handle petitions before all NCLT benches and the NCLAT, from initiating CIRP to defending against frivolous Section 9 operational creditor notices.</p><p>Our chambers has acted in major resolution plans, avoidance transaction proceedings under Section 43/45/66, and liquidation distributions.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Insolvency and restructuring document analysis",
+      "order": 6,
+      "is_active": true,
+      "meta_title": "Insolvency & Bankruptcy (IBC / NCLT) Practice",
+      "meta_description": "NCLT and NCLAT representation for corporate insolvency, resolution applicants, and creditors."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 7,
+    "fields": {
+      "title": "Real Estate & RERA Law",
+      "slug": "real-estate-rera-law",
+      "short_description": "Land due diligence, title search, RERA complaints, builder delays, conveyance drafting, and high-value property litigation.",
+      "full_description": "<p>Real estate transactions require precise title verification and rigorous dispute resolution. We advise developers, institutional investors, and allottees on all aspects of property law.</p><p>We represent clients before Real Estate Regulatory Authorities (RERA), Appellate Tribunals, and civil courts regarding project delivery delays, refund claims, and title cloud clearances.</p><p>Our transactional team conducts multi-generational title searches, prepares sale deeds, joint development agreements (JDAs), and commercial lease deeds.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Real estate architectural blueprint and keys",
+      "order": 7,
+      "is_active": true,
+      "meta_title": "Real Estate & RERA Litigation Lawyers | Subhash Mishra & Associates",
+      "meta_description": "Property title verification, RERA disputes, commercial leasing, and real estate litigation."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 8,
+    "fields": {
+      "title": "Industrial Relations & Labour Law",
+      "slug": "industrial-relations-labour-law",
+      "short_description": "Counseling employers and trade unions on labour code compliance, wrongful termination, factory acts, and Industrial Tribunal litigation.",
+      "full_description": "<p>Navigating India's evolving labour codes requires deep understanding of statutory mandates and industrial jurisprudence. We guide management on labour compliance and union negotiations.</p><p>Our lawyers represent clients before Labour Courts, Industrial Tribunals, and High Courts in matters of collective bargaining, retrenchment, disciplinary inquiries, and wage revisions.</p><p>We also draft executive employment contracts, non-compete agreements, POSH (Prevention of Sexual Harassment) policies, and internal committee compliance frameworks.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Industrial workplace and labour relations handshake",
+      "order": 8,
+      "is_active": true,
+      "meta_title": "Industrial Relations & Labour Law Advocates",
+      "meta_description": "Employment law advisory, POSH compliance, and Industrial Tribunal representation across India."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 9,
+    "fields": {
+      "title": "Alternative Dispute Resolution (ADR)",
+      "slug": "alternative-dispute-resolution-adr",
+      "short_description": "Domestic and international commercial arbitration, mediation, conciliation, and enforcement of arbitral awards under the Arbitration Act.",
+      "full_description": "<p>Alternative Dispute Resolution is the modern cornerstone for commercial dispute resolution. Our chambers provides senior counsel representation in both ad-hoc and institutional arbitrations (SIAC, LCIA, MCIA, DIAC).</p><p>We handle Section 9 interim measures, Section 11 arbitrator appointments before High Courts and Supreme Court, Section 34 challenge petitions, and Section 36 execution proceedings.</p><p>We also act as certified mediators helping parties achieve confidential, cost-effective settlements without protracted trial litigation.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Commercial arbitration conference room",
+      "order": 9,
+      "is_active": true,
+      "meta_title": "Commercial Arbitration & ADR Counsel | Subhash Mishra & Associates",
+      "meta_description": "Domestic and international commercial arbitration representation and Section 34 enforcement."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 10,
+    "fields": {
+      "title": "Project & Infrastructure Law",
+      "slug": "project-infrastructure-law",
+      "short_description": "Legal advisory on EPC contracts, concession agreements, highways, energy projects, PPP frameworks, and infrastructure dispute adjudication.",
+      "full_description": "<p>Infrastructure and energy projects demand robust contract administration and risk allocation. We advise concessionaires, contractors, and public authorities on project lifecycles.</p><p>We handle FIDIC contracts, NHAI concession agreements, power purchase agreements (PPAs), and dispute adjudication board (DAB) proceedings.</p><p>Our litigation team represents clients in major claims for time-extension costs, liquidated damages challenges, escalation claims, and premature contract terminations.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Infrastructure development and construction site",
+      "order": 10,
+      "is_active": true,
+      "meta_title": "Infrastructure & Project Finance Law | Subhash Mishra & Associates",
+      "meta_description": "EPC contract advisory, PPP frameworks, and highway/energy infrastructure dispute litigation."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 11,
+    "fields": {
+      "title": "Civil Litigation & Trial Practice",
+      "slug": "civil-litigation-trial-practice",
+      "short_description": "Comprehensive civil court advocacy: suits for specific performance, injunctions, partition, declaration of title, and regular first/second appeals.",
+      "full_description": "<p>A formidable trial foundation separates outstanding advocates from the rest. Our chambers maintains active trial practice across original side civil courts and appellate forums.</p><p>We handle original suits for partition, specific performance of contract, recovery of possession, mandatory and prohibitory injunctions, and execution of civil decrees.</p><p>Our senior counsel regularly argue First Appeals (RFA) and Second Appeals (RSA) under Section 100 of the CPC before High Courts on substantial questions of law.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Civil court proceedings and legal documents",
+      "order": 11,
+      "is_active": true,
+      "meta_title": "Civil Litigation & Trial Court Practice | Subhash Mishra & Associates",
+      "meta_description": "Original suits, specific performance, injunctions, and High Court civil appeals in India."
+    }
+  },
+  {
+    "model": "practice_areas.practicearea",
+    "pk": 12,
+    "fields": {
+      "title": "Mining & Allied Natural Resource Laws",
+      "slug": "mining-allied-laws",
+      "short_description": "Regulatory counsel and litigation on mining lease grants, MMDR Act violations, forest clearances, environment tribunal (NGT) appeals, and royalties.",
+      "full_description": "<p>Natural resources and mining operations exist within a stringent regulatory framework of central and state enactments. We represent mining leaseholders and quarry operators.</p><p>We handle matters under the Mines and Minerals (Development and Regulation) Act (MMDR), transit pass disputes, royalty revisions, and illegal mining penalties before High Courts and appellate authorities.</p><p>We also appear before the National Green Tribunal (NGT) regarding Environmental Clearances (EC), Forest Clearances (FC), and consent to operate disputes.</p>",
+      "hero_image": "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1200&q=80",
+      "hero_image_alt": "Mining excavation and natural resource environment",
+      "order": 12,
+      "is_active": true,
+      "meta_title": "Mining Law & NGT Environmental Litigation",
+      "meta_description": "MMDR Act defense, mining lease renewals, forest clearances, and NGT representation."
+    }
+  }
+]

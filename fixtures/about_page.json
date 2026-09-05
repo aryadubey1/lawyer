@@ -1,0 +1,21 @@
+[
+  {
+    "model": "about.aboutpage",
+    "pk": 1,
+    "fields": {
+      "intro_heading": "A Legacy of Distinguished Advocacy & Strategic Counsel",
+      "intro_text": "<p>Established with a commitment to uncompromising legal scholarship, <strong>Subhash Mishra & Associates</strong> provides high-caliber representation across the entire spectrum of litigation and regulatory advisory in India.</p><p>Led by <strong>Senior Advocate Subhash Mishra</strong>, our chambers has built an esteemed reputation across trial courts, High Courts, and the Supreme Court of India. We act for public sector enterprises, industrial conglomerates, financial institutions, and private individuals in matters where precedent, liberty, and substantial commercial assets are at stake.</p><p>We approach every brief with exhaustive preparation, analytical precision, and courtroom tenacity.</p>",
+      "intro_image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+      "intro_image_alt": "Chambers library and conference desk",
+      "mission": "<p>To deliver authoritative, ethical, and result-oriented advocacy, championing the constitutional rights and commercial objectives of our clients with relentless intellectual rigor.</p>",
+      "vision": "<p>To set the national benchmark for litigation excellence and jurisprudential scholarship in India, bridging classical advocacy traditions with modern commercial realities.</p>",
+      "ethics": "<p>We observe absolute adherence to the standards of professional conduct prescribed by the Bar Council of India, maintaining total candour before tribunals and strict client confidentiality.</p>",
+      "years_experience": 28,
+      "cases_won": 1850,
+      "clients_served": 1100,
+      "team_size": 18,
+      "meta_title": "About Subhash Mishra & Associates | Leading Law Firm & Advocates in India",
+      "meta_description": "Learn about the heritage, leadership, and litigation philosophy of Senior Advocate Subhash Mishra."
+    }
+  }
+]

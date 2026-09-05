@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}{% if about.meta_title %}{{ about.meta_title }}{% else %}About Us — {{ site_config.firm_name }}{% endif %}{% endblock %}
+{% block meta_description %}{% if about.meta_description %}{{ about.meta_description }}{% else %}Learn about {{ site_config.firm_name }}, our mission, vision, values, and experienced legal team.{% endif %}{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="bg-charcoal-900 text-off-white py-20 relative overflow-hidden border-b border-charcoal-800">
+  <div class="grain-overlay"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="kicker kicker--center text-gold uppercase tracking-widest text-xs font-semibold mb-4">
+      Firm Profile & Philosophy
+    </span>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-off-white mt-2 mb-4 tracking-tight">
+      About {{ site_config.firm_name }}
+    </h1>
+    <p class="text-charcoal-300 text-base sm:text-lg max-w-2xl mx-auto">
+      {{ site_config.firm_tagline }}
+    </p>
+  </div>
+</section>
+
+<!-- Main Introduction -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+      <div class="lg:col-span-7">
+        <div data-reveal data-reveal-delay="0">
+          <span class="kicker text-gold uppercase tracking-widest text-xs font-semibold mb-4">
+            Our Foundation
+          </span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-charcoal-900 mt-2 mb-6 leading-tight" data-reveal data-reveal-delay="80">
+          {{ about.intro_heading|default:"A Principle-Driven Approach to Modern Legal Practice" }}
+        </h2>
+        <div class="prose prose-base text-charcoal-700 max-w-none space-y-4" data-reveal data-reveal-delay="160">
+          {% if about.intro_text %}
+            {{ about.intro_text|safe }}
+          {% else %}
+            <p>Founded on principles of uncompromising integrity and rigorous legal craft, {{ site_config.firm_name }} provides authoritative legal counsel and dispute resolution representation.</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="lg:col-span-5" data-reveal data-reveal-delay="120">
+        <div class="rounded-lg overflow-hidden shadow-card border border-charcoal-100 h-96 sm:h-[450px] bg-charcoal-800">
+          <img src="{% if about.intro_image %}{{ about.intro_image.url }}{% else %}https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80{% endif %}"
+               alt="{{ about.intro_image_alt|default:site_config.firm_name }}"
+               class="w-full h-full object-cover"
+               loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Stats Strip -->
+<section class="py-16 bg-charcoal-950 text-off-white border-y border-charcoal-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div data-reveal data-reveal-delay="0">
+        {% include "components/stat_block.html" with value=about.years_experience|default:25 label="Years of Experience" suffix="+" %}
+      </div>
+      <div data-reveal data-reveal-delay="100">
+        {% include "components/stat_block.html" with value=about.cases_won|default:1200 label="Matters Handled" suffix="+" %}
+      </div>
+      <div data-reveal data-reveal-delay="200">
+        {% include "components/stat_block.html" with value=about.clients_served|default:850 label="Clients Advised" suffix="+" %}
+      </div>
+      <div data-reveal data-reveal-delay="300">
+        {% include "components/stat_block.html" with value=about.team_size|default:15 label="Advocates & Staff" suffix="" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission, Vision & Ethics 3-Column Block -->
+<section class="py-24 bg-off-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {% include "components/section_heading.html" with kicker="Core Tenets" heading="Mission, Vision & Ethics" subtitle="The ethical benchmarks and guiding philosophy that govern every brief we accept." %}
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Mission -->
+      <div class="card p-8 bg-white flex flex-col justify-between" data-reveal data-reveal-delay="0">
+        <div>
+          <div class="w-12 h-12 rounded bg-gold/10 text-gold flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-charcoal-900 mb-4">Our Mission</h3>
+          <div class="prose prose-sm text-charcoal-600">
+            {% if about.mission %}
+              {{ about.mission|safe }}
+            {% else %}
+              <p>To deliver uncompromising advocacy and pragmatic solutions with absolute dedication to the rule of law and client confidentiality.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision -->
+      <div class="card p-8 bg-white flex flex-col justify-between" data-reveal data-reveal-delay="120">
+        <div>
+          <div class="w-12 h-12 rounded bg-gold/10 text-gold flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-charcoal-900 mb-4">Our Vision</h3>
+          <div class="prose prose-sm text-charcoal-600">
+            {% if about.vision %}
+              {{ about.vision|safe }}
+            {% else %}
+              <p>To be recognized as India's foremost specialized litigation chambers, standardizing excellence and precision across high-stakes matters.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Ethics -->
+      <div class="card p-8 bg-white flex flex-col justify-between" data-reveal data-reveal-delay="240">
+        <div>
+          <div class="w-12 h-12 rounded bg-gold/10 text-gold flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-charcoal-900 mb-4">Professional Ethics</h3>
+          <div class="prose prose-sm text-charcoal-600">
+            {% if about.ethics %}
+              {{ about.ethics|safe }}
+            {% else %}
+              <p>Adherence to the highest standards of the Bar Council of India, maintaining absolute candour to the court and complete fidelity to our clients.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Founder Section -->
+{% if founder %}
+<section class="py-24 bg-white border-t border-charcoal-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-4" data-reveal data-reveal-delay="0">
+        <div class="rounded-lg overflow-hidden border-2 border-gold/30 shadow-card bg-charcoal-800 aspect-square">
+          <img src="{% if founder.photo %}{{ founder.photo.url }}{% else %}https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80{% endif %}"
+               alt="{{ founder.name }}"
+               class="w-full h-full object-cover object-top"
+               loading="lazy" />
+        </div>
+      </div>
+      <div class="lg:col-span-8">
+        <div data-reveal data-reveal-delay="60">
+          <span class="kicker text-gold uppercase tracking-widest text-xs font-semibold mb-2">Leadership</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-charcoal-900 mt-1 mb-2" data-reveal data-reveal-delay="120">{{ founder.name }}</h2>
+        <p class="text-gold font-semibold text-sm uppercase tracking-wider mb-6" data-reveal data-reveal-delay="180">{{ founder.designation }}</p>
+        <p class="text-charcoal-700 leading-relaxed text-base mb-6" data-reveal data-reveal-delay="240">{{ founder.bio }}</p>
+        <div data-reveal data-reveal-delay="300">
+          <a href="{% url 'contact:contact' %}" class="btn-gold">Request Consultation with {{ founder.name }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- CTA Band -->
+{% include "components/cta_band.html" %}
+
+{% endblock %}

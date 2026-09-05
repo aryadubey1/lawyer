@@ -1,0 +1,121 @@
+{# Hero Carousel Component using Alpine.js #}
+{% load static %}
+
+<div class="hero-section"
+     x-data="heroCarousel({{ hero_slides|length|default:1 }})"
+     x-init="init()"
+     @mouseenter="paused = true"
+     @mouseleave="paused = false">
+
+  <div class="grain-overlay"></div>
+
+  {% if hero_slides %}
+    {% for slide in hero_slides %}
+    <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+         x-show="isActive({{ forloop.counter0 }})"
+         x-transition:enter="transition-opacity duration-1000 ease-in-out"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity duration-1000 ease-in-out"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         style="{% if not forloop.first %}display: none;{% endif %}">
+
+      <!-- Background Image with Gradient Overlay -->
+      <div class="hero-parallax-bg absolute inset-0 bg-cover bg-center will-change-transform scale-105"
+           style="background-image: url('{% if slide.image %}{{ slide.image.url }}{% else %}https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80{% endif %}');">
+        <div class="absolute inset-0 bg-gradient-to-r from-charcoal-950/90 via-charcoal-900/80 to-charcoal-950/90"></div>
+      </div>
+
+      <!-- Slide Content -->
+      <div class="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 py-24">
+        {% if slide.kicker %}
+        <span class="kicker kicker--center text-gold uppercase tracking-widest text-xs sm:text-sm font-semibold mb-6">
+          {{ slide.kicker }}
+        </span>
+        {% endif %}
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold text-off-white tracking-wide max-w-5xl leading-tight mb-6">
+          {% if slide.heading_lead or slide.heading_emphasis %}
+            <span class="block font-normal text-charcoal-200 text-xl sm:text-3xl lg:text-4xl mb-2 font-display italic">{{ slide.heading_lead }}</span>
+            <span class="block text-gold">{{ slide.heading_emphasis }}</span>
+          {% else %}
+            {{ slide.heading }}
+          {% endif %}
+        </h1>
+
+        {% if slide.subheading %}
+        <p class="text-charcoal-200 text-base sm:text-lg lg:text-xl max-w-3xl leading-relaxed mb-10 font-normal">
+          {{ slide.subheading }}
+        </p>
+        {% endif %}
+
+        {% if slide.cta_text %}
+        <div class="flex flex-wrap gap-4 justify-center items-center">
+          <a href="{{ slide.cta_url|default:'/contact/' }}" class="btn-gold px-8 py-4 text-base font-bold tracking-wide uppercase shadow-lg hover:shadow-gold transition-all duration-300">
+            {{ slide.cta_text }}
+            <span class="arrow-icon inline-block ml-1">→</span>
+          </a>
+          <a href="{% url 'practice_areas:list' %}" class="btn-white-outline px-8 py-4 text-base font-semibold tracking-wide uppercase">
+            Practice Areas
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- Carousel Controls (Left & Right Arrows) -->
+    {% if hero_slides|length > 1 %}
+    <button @click="prev()"
+            class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-charcoal-600 bg-charcoal-900/60 text-off-white hover:text-gold hover:border-gold transition-all duration-200 flex items-center justify-center backdrop-blur-sm"
+            aria-label="Previous Slide">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button @click="next()"
+            class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-charcoal-600 bg-charcoal-900/60 text-off-white hover:text-gold hover:border-gold transition-all duration-200 flex items-center justify-center backdrop-blur-sm"
+            aria-label="Next Slide">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <!-- Indicators (Dots) -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      {% for slide in hero_slides %}
+      <button @click="goTo({{ forloop.counter0 }})"
+              class="h-2 rounded-full transition-all duration-300"
+              :class="isActive({{ forloop.counter0 }}) ? 'w-8 bg-gold' : 'w-2 bg-charcoal-600 hover:bg-charcoal-400'"
+              aria-label="Go to slide {{ forloop.counter }}"></button>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  {% else %}
+    <!-- Default Hero Slide if no slides in DB -->
+    <div class="hero-parallax-bg absolute inset-0 bg-cover bg-center will-change-transform scale-105"
+         style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80');">
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal-950/90 via-charcoal-900/80 to-charcoal-950/90"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center items-center text-center px-4 py-32">
+      <span class="kicker kicker--center text-gold uppercase tracking-widest text-sm font-semibold mb-6">Advocates & Legal Consultants</span>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold text-off-white tracking-wide max-w-4xl leading-tight mb-6">
+        <span class="block font-normal text-charcoal-200 text-xl sm:text-3xl lg:text-4xl mb-2 font-display italic">Principled Advocacy & Strategic Counsel</span>
+        <span class="block text-gold">Defending Your Rights With Integrity & Precision</span>
+      </h1>
+      <p class="text-charcoal-200 text-lg max-w-2xl mb-8">
+        Providing distinguished legal counsel and courtroom representation across high-stakes corporate, civil, constitutional, and commercial litigation.
+      </p>
+      <a href="{% url 'contact:contact' %}" class="btn-gold px-8 py-4 text-base font-bold uppercase">
+        Request Consultation
+      </a>
+    </div>
+  {% endif %}
+
+  <!-- Scroll Indicator (Desktop only, bottom-right) -->
+  <div class="hidden lg:flex hero-scroll-indicator" aria-hidden="true">
+    <span class="text-[10px] uppercase font-bold tracking-[0.25em] text-charcoal-300 mb-2">Scroll</span>
+    <div class="hero-scroll-line">
+      <div class="hero-scroll-dot"></div>
+    </div>
+  </div>
+
+</div>

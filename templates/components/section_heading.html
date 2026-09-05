@@ -1,0 +1,23 @@
+{# Section heading with kicker and gold divider motif #}
+<div class="text-center max-w-3xl mx-auto mb-16 px-4">
+  {% if kicker %}
+  <div data-reveal data-reveal-delay="0">
+    <span class="kicker kicker--center text-gold uppercase tracking-widest text-xs sm:text-sm font-semibold">
+      {{ kicker }}
+    </span>
+  </div>
+  {% endif %}
+
+  <h2 class="section-heading text-3xl sm:text-4xl lg:text-5xl font-display font-bold {% if light %}section-heading--light{% else %}text-charcoal-900{% endif %} mt-4" data-reveal data-reveal-delay="90">
+    {{ heading }}
+  </h2>
+
+  <div class="gold-divider" data-reveal data-reveal-delay="180"></div>
+
+  {% if subtitle %}
+  <p class="text-base sm:text-lg {% if light %}text-charcoal-300{% else %}text-charcoal-600{% endif %} max-w-2xl mx-auto leading-relaxed" data-reveal data-reveal-delay="260">
+    {{ subtitle }}
+  </p>
+  {% endif %}
+</div>
+

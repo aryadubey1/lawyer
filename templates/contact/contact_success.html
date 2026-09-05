@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Thank You — Message Received | {{ site_config.firm_name }}{% endblock %}
+
+{% block content %}
+<section class="min-h-[70vh] flex items-center justify-center py-20 bg-off-white">
+  <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
+    <div class="w-20 h-20 rounded-full bg-gold/10 text-gold flex items-center justify-center mx-auto mb-8 shadow-sm">
+      <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+
+    <span class="kicker kicker--center text-gold uppercase tracking-widest text-xs font-semibold mb-4">
+      Inquiry Received
+    </span>
+
+    <h1 class="text-3xl sm:text-4xl font-display font-extrabold text-charcoal-900 mb-4">
+      Thank You For Reaching Out
+    </h1>
+
+    <div class="gold-divider"></div>
+
+    <p class="text-charcoal-600 text-base sm:text-lg leading-relaxed mb-10">
+      Your inquiry has been received by our chambers. One of our advocates will review your message and contact you promptly.
+    </p>
+
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="{% url 'core:home' %}" class="btn-gold">
+        Return to Home
+      </a>
+      <a href="{% url 'practice_areas:list' %}" class="btn-gold-outline">
+        Explore Practice Areas
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}{{ practice_area.effective_meta_title }}{% endblock %}
+{% block meta_description %}{{ practice_area.meta_description|default:practice_area.short_description }}{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="bg-charcoal-900 text-off-white py-20 relative overflow-hidden border-b border-charcoal-800">
+  <div class="grain-overlay"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <a href="{% url 'practice_areas:list' %}" class="inline-flex items-center text-gold text-xs font-bold uppercase tracking-widest mb-4 hover:underline">
+        ← All Practice Areas
+      </a>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-off-white tracking-tight leading-tight mb-4">
+        {{ practice_area.title }}
+      </h1>
+      <p class="text-charcoal-300 text-base sm:text-lg">
+        {{ practice_area.short_description }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Main Detail Layout with Sidebar -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+      <!-- Left / Main Column -->
+      <article class="lg:col-span-8">
+        {% if practice_area.hero_image %}
+        <div class="rounded-lg overflow-hidden mb-10 h-72 sm:h-96 bg-charcoal-800 shadow-card" data-reveal data-reveal-delay="0">
+          <img src="{{ practice_area.hero_image.url }}"
+               alt="{{ practice_area.hero_image_alt|default:practice_area.title }}"
+               class="w-full h-full object-cover" />
+        </div>
+        {% endif %}
+
+        <div class="prose prose-lg text-charcoal-800 max-w-none leading-relaxed" data-reveal data-reveal-delay="80">
+          {{ practice_area.full_description|safe }}
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-charcoal-200 flex flex-wrap gap-4 items-center justify-between" data-reveal data-reveal-delay="160">
+          <div>
+            <h4 class="font-display font-bold text-lg text-charcoal-900">Need counsel in {{ practice_area.title }}?</h4>
+            <p class="text-charcoal-600 text-sm">Schedule a confidential consultation with our specialized advocates.</p>
+          </div>
+          <a href="{% url 'contact:contact' %}?practice_area={{ practice_area.slug }}" class="btn-gold">
+            Book Consultation
+          </a>
+        </div>
+      </article>
+
+      <!-- Right / Sidebar Column -->
+      <aside class="lg:col-span-4 space-y-8">
+
+        <!-- Other Practice Areas Widget -->
+        <div class="card p-6 bg-off-white" data-reveal data-reveal-delay="100">
+          <h3 class="font-display text-lg font-bold text-charcoal-900 mb-4 pb-2 border-b border-charcoal-200">
+            Other Practice Areas
+          </h3>
+          <ul class="space-y-2">
+            {% for other in other_areas %}
+            <li>
+              <a href="{{ other.get_absolute_url }}" class="flex items-center justify-between text-sm text-charcoal-700 hover:text-gold py-1.5 transition-colors">
+                <span>{{ other.title }}</span>
+                <span class="text-gold text-xs">→</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Consultation Box -->
+        <div class="card p-6 bg-charcoal-900 text-off-white border-charcoal-800" data-reveal data-reveal-delay="200">
+          <h3 class="font-display text-xl font-bold text-gold mb-3">Speak With An Advocate</h3>
+          <p class="text-charcoal-300 text-sm leading-relaxed mb-6">
+            Get straightforward legal assessment and tactical guidance tailored to your specific matter.
+          </p>
+          {% if site_config.phone_primary %}
+          <div class="mb-4">
+            <span class="text-xs uppercase text-gold/80 block font-semibold">Direct Helpline</span>
+            <a href="tel:{{ site_config.phone_primary }}" class="text-lg font-bold text-off-white hover:text-gold">
+              {{ site_config.phone_primary }}
+            </a>
+          </div>
+          {% endif %}
+          <a href="{% url 'contact:contact' %}" class="btn-gold w-full justify-center text-center">
+            Send Message
+          </a>
+        </div>
+
+        <!-- Related Blog Posts -->
+        {% if related_posts %}
+        <div class="card p-6 bg-white" data-reveal data-reveal-delay="300">
+          <h3 class="font-display text-lg font-bold text-charcoal-900 mb-4 pb-2 border-b border-charcoal-200">
+            Related Insights
+          </h3>
+          <div class="space-y-4">
+            {% for rpost in related_posts %}
+            <div>
+              <span class="text-xs text-charcoal-400">{{ rpost.published_at|date:"d M Y" }}</span>
+              <h4 class="text-sm font-bold text-charcoal-800 hover:text-gold mt-1">
+                <a href="{{ rpost.get_absolute_url }}">{{ rpost.title }}</a>
+              </h4>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

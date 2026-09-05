@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Practice Areas — {{ site_config.firm_name }}{% endblock %}
+{% block meta_description %}Explore our areas of legal specialization across Corporate Law, Constitutional Disputes, Civil Litigation, Real Estate, Banking, and ADR.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="bg-charcoal-900 text-off-white py-20 relative overflow-hidden border-b border-charcoal-800">
+  <div class="grain-overlay"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div data-reveal data-reveal-delay="0">
+      <span class="kicker kicker--center text-gold uppercase tracking-widest text-xs font-semibold mb-4">
+        Legal Specializations
+      </span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-off-white mt-2 mb-4 tracking-tight" data-reveal data-reveal-delay="80">
+      Practice & Litigation Areas
+    </h1>
+    <p class="text-charcoal-300 text-base sm:text-lg max-w-2xl mx-auto" data-reveal data-reveal-delay="160">
+      Comprehensive dispute resolution, regulatory advisory, and litigation counsel across key sectors of law.
+    </p>
+  </div>
+</section>
+
+<!-- Practice Areas Grid -->
+<section class="py-24 bg-off-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for area in practice_areas %}
+        <div data-reveal data-reveal-delay="{% cycle '0' '100' '200' %}" class="h-full">
+          {% include "components/practice_area_card.html" with area=area %}
+        </div>
+      {% empty %}
+        <p class="col-span-3 text-center text-charcoal-500 py-12">No practice areas available.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Band -->
+{% include "components/cta_band.html" %}
+
+{% endblock %}

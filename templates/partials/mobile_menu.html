@@ -1,0 +1,71 @@
+{# Mobile menu overlay — shares x-data="mobileMenu()" with navbar via base.html wrapper #}
+
+<div x-show="open"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     @click.self="close()"
+     class="lg:hidden fixed inset-0 z-40 bg-charcoal-900"
+     style="display: none;"
+     id="mobile-menu"
+     role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
+
+  <!-- Close button -->
+  <div class="flex items-center justify-between px-6 py-5 border-b border-charcoal-700">
+    <a href="{% url 'core:home' %}" @click="close()" class="font-display text-xl font-bold text-off-white" aria-label="{{ site_config.firm_name }} — Home">
+      <span class="text-gold">{{ site_config.firm_name_lead }}</span>{% if site_config.firm_name_rest %} {{ site_config.firm_name_rest }}{% endif %}
+    </a>
+    <button type="button"
+            @click="close()"
+            class="p-2 text-charcoal-200 hover:text-gold transition-colors min-h-11 min-w-11"
+            aria-label="Close mobile menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <nav class="px-6 py-8 flex flex-col gap-1" aria-label="Mobile navigation">
+    <a href="{% url 'core:home' %}" @click="close()" class="py-3 text-off-white hover:text-gold font-medium border-b border-charcoal-700 transition-colors">Home</a>
+    <a href="{% url 'about:about' %}" @click="close()" class="py-3 text-off-white hover:text-gold font-medium border-b border-charcoal-700 transition-colors">About</a>
+
+    <!-- Practice Areas list -->
+    <details class="border-b border-charcoal-700">
+      <summary class="py-3 text-off-white hover:text-gold font-medium cursor-pointer list-none flex justify-between items-center min-h-11">
+        Practice Areas
+        <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="pl-4 pb-3 flex flex-col gap-1">
+        {% for area in nav_practice_areas %}
+        <a href="{{ area.get_absolute_url }}" @click="close()" class="py-2.5 text-charcoal-200 hover:text-gold text-sm transition-colors">{{ area.title }}</a>
+        {% endfor %}
+        <a href="{% url 'practice_areas:list' %}" @click="close()" class="py-2.5 text-gold text-sm font-semibold">View All →</a>
+      </div>
+    </details>
+
+    <a href="{% url 'team:list' %}" @click="close()" class="py-3 text-off-white hover:text-gold font-medium border-b border-charcoal-700 transition-colors">Our Team</a>
+    <a href="{% url 'gallery:gallery' %}" @click="close()" class="py-3 text-off-white hover:text-gold font-medium border-b border-charcoal-700 transition-colors">Gallery</a>
+    <a href="{% url 'blog:list' %}" @click="close()" class="py-3 text-off-white hover:text-gold font-medium border-b border-charcoal-700 transition-colors">Blog</a>
+
+    <a href="{% url 'contact:contact' %}" @click="close()" class="btn-gold mt-6 justify-center">
+      Contact Us
+    </a>
+  </nav>
+
+  <!-- Contact info at bottom -->
+  <div class="absolute bottom-8 left-6 right-6 text-charcoal-300 text-sm">
+    {% if site_config.phone_primary %}
+    <p>📞 {{ site_config.phone_primary }}</p>
+    {% endif %}
+    {% if site_config.email_primary %}
+    <p class="mt-1">✉️ {{ site_config.email_primary }}</p>
+    {% endif %}
+  </div>
+
+</div>

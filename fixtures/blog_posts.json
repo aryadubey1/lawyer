@@ -1,0 +1,146 @@
+[
+  {
+    "model": "blog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Constitutional Jurisprudence",
+      "slug": "constitutional-jurisprudence",
+      "description": "Analysis of landmark Supreme Court rulings and fundamental rights doctrines."
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Corporate & IBC",
+      "slug": "corporate-ibc",
+      "description": "Insolvency developments, NCLAT case law, and company law amendments."
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Arbitration & Dispute Resolution",
+      "slug": "arbitration-dispute-resolution",
+      "description": "Commentaries on the Arbitration & Conciliation Act and international treaties."
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Regulatory & Environmental Law",
+      "slug": "regulatory-environmental-law",
+      "description": "Developments from NGT, environmental clearances, and compliance directives."
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+      "title": "Supreme Court on Section 9 of the IBC: Scope of Pre-Existing Disputes Explained",
+      "slug": "supreme-court-ibc-section-9-pre-existing-disputes",
+      "category": 2,
+      "related_practice_area": 6,
+      "featured_image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Supreme Court gavel on law books",
+      "excerpt": "A definitive analysis of the latest three-judge bench ruling elucidating the threshold of 'plausible dispute' required to dismiss an operational creditor's insolvency plea under Section 9 of the IBC.",
+      "body": "<p>In a landmark judgment clarifying the procedural safeguards under the Insolvency and Bankruptcy Code, 2016 (IBC), the Supreme Court of India has reiterated that the adjudicating authority (NCLT) is not required to examine the merits of a dispute in the manner of a civil trial, but merely verify whether a genuine dispute predated the Section 8 demand notice.</p><h3>Key Takeaways from the Ruling</h3><p>The apex court observed that the IBC was never intended to serve as a debt recovery mechanism or an arm-twisting forum for undisputed commercial dues. If the corporate debtor demonstrates any pre-existing correspondence, arbitration notice, or quality rejection prior to the statutory demand notice, admission of CIRP must be declined.</p><p>This judgment provides significant relief to operating companies facing pressure tactics from commercial vendors in disputed contractual deliveries.</p>",
+      "is_published": true,
+      "published_at": "2026-08-15T10:00:00Z",
+      "meta_title": "Supreme Court on IBC Section 9 Pre-Existing Disputes | Subhash Mishra & Associates",
+      "meta_description": "Analysis of Supreme Court precedent on operational creditor petitions and pre-existing dispute thresholds under IBC 2016."
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 2,
+    "fields": {
+      "title": "Stamp Duty and Arbitrability: Navigating the Constitution Bench Ruling in Curative Petitions",
+      "slug": "stamp-duty-arbitrability-curative-petition-supreme-court",
+      "category": 3,
+      "related_practice_area": 9,
+      "featured_image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Legal contract documents with stamp and signature",
+      "excerpt": "How the 7-judge Constitution Bench resolved the deadlock between the Stamp Act and Section 11 of the Arbitration & Conciliation Act, paving the way for expedited arbitrator appointments.",
+      "body": "<p>The 7-judge Constitution Bench ruling has harmonized the longstanding tension between the Indian Stamp Act, 1899 and the Arbitration and Conciliation Act, 1996. The Court unanimously held that unstamped or insufficiently stamped underlying contracts do not render the arbitration clause null and void at the referral stage under Section 11.</p><h3>Impact on Commercial Enforcement</h3><p>By delegating the examination of stamp duty compliance to the arbitral tribunal rather than the referral court, India has firmly aligned its domestic arbitration jurisprudence with the global doctrine of separability and competence-competence.</p>",
+      "is_published": true,
+      "published_at": "2026-08-01T11:30:00Z",
+      "meta_title": "Stamp Duty & Arbitration In India: Supreme Court Analysis | Subhash Mishra & Associates",
+      "meta_description": "Detailed review of the 7-judge Constitution Bench verdict on unstamped arbitration agreements."
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 3,
+    "fields": {
+      "title": "Judicial Review of Government Tender Conditions: Limits of Article 226 Intervention",
+      "slug": "judicial-review-government-tenders-article-226",
+      "category": 1,
+      "related_practice_area": 1,
+      "featured_image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Government administrative building and law scales",
+      "excerpt": "An examination of judicial restraint doctrines when contractors challenge tender eligibility conditions, disqualifications, and tender cancellations in High Courts.",
+      "body": "<p>The writ jurisdiction under Article 226 in commercial tender matters is governed by the twin principles of fairness and non-arbitrariness under Article 14. However, courts maintain that government authorities have the freedom of contract and are the best judges of tender specifications.</p><p>In this commentary, our constitutional law team outlines the precise narrow exceptions where judicial intervention is warranted—principally mala fides, tailor-made eligibility clauses designed to favor a single bidder, and perverse evaluation methods.</p>",
+      "is_published": true,
+      "published_at": "2026-07-20T09:15:00Z",
+      "meta_title": "Government Tender Challenges Under Article 226 | Subhash Mishra & Associates",
+      "meta_description": "Legal analysis on High Court writ intervention in public procurement tenders and government contracts."
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 4,
+    "fields": {
+      "title": "RERA vs IBC: Harmonizing Homebuyer Rights as Financial Creditors",
+      "slug": "rera-vs-ibc-homebuyer-rights-financial-creditors",
+      "category": 2,
+      "related_practice_area": 7,
+      "featured_image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Real estate building construction and keys",
+      "excerpt": "Navigating the dual remedies available to delayed real estate allottees under RERA authority directives and collective IBC insolvency petitions.",
+      "body": "<p>Homebuyers occupy a unique statutory position in Indian jurisprudence, recognized both as consumer-allottees under RERA and financial creditors under the IBC. When a real estate developer defaults on project execution, determining the optimal legal path is crucial.</p><p>This article breaks down the minimum threshold requirements for Section 7 IBC petitions (100 allottees or 10% of total units) and compares them against RERA recovery certificate executions.</p>",
+      "is_published": true,
+      "published_at": "2026-07-10T14:00:00Z",
+      "meta_title": "RERA vs IBC: Legal Strategy for Homebuyers | Subhash Mishra & Associates",
+      "meta_description": "Comparing remedies under Real Estate Regulatory Authority (RERA) and IBC insolvency resolution."
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 5,
+    "fields": {
+      "title": "Strict Liability & Environmental Compensation: Trends in NGT Jurisprudence",
+      "slug": "strict-liability-environmental-compensation-ngt",
+      "category": 4,
+      "related_practice_area": 12,
+      "featured_image": "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Environmental landscape and industrial regulatory compliance",
+      "excerpt": "How the National Green Tribunal enforces the 'Polluter Pays' principle and calculates interim environmental damage penalties on industrial units.",
+      "body": "<p>The National Green Tribunal (NGT) has increasingly adopted proactive regulatory oversight through expert committees and substantial interim restitution damages against manufacturing, mining, and real estate projects.</p><p>We examine the evidentiary requirements for challenging adverse expert committee reports and maintaining statutory appeals before the Supreme Court under Section 22 of the NGT Act, 2010.</p>",
+      "is_published": true,
+      "published_at": "2026-06-25T16:45:00Z",
+      "meta_title": "NGT Environmental Compensation & Strict Liability | Subhash Mishra & Associates",
+      "meta_description": "Expert insights into NGT environmental penalties, expert committee challenges, and Supreme Court statutory appeals."
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 6,
+    "fields": {
+      "title": "Specific Performance of Contracts Post the 2018 Amendment: The Shift to Mandatory Relief",
+      "slug": "specific-performance-contract-act-amendment-mandatory-relief",
+      "category": 3,
+      "related_practice_area": 11,
+      "featured_image": "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Civil court judge writing a verdict with fountain pen",
+      "excerpt": "An in-depth analysis of how the 2018 amendment to Section 10 of the Specific Relief Act transformed specific performance from a discretionary remedy into a statutory mandate.",
+      "body": "<p>Prior to the 2018 amendment, courts exercised broad equitable discretion in granting specific performance of commercial and property agreements, often relegating claimants to damages. The amended Section 10 mandates that specific performance 'shall be enforced by the court', subject only to limited statutory exceptions.</p><p>This article reviews appellate court interpretations on the readiness and willingness prerequisite under Section 16(c) in the post-amendment regime.</p>",
+      "is_published": true,
+      "published_at": "2026-06-12T10:00:00Z",
+      "meta_title": "Specific Performance of Contracts (Post-2018) | Subhash Mishra & Associates",
+      "meta_description": "Civil trial guide to mandatory specific performance under the Specific Relief Amendment Act."
+    }
+  }
+]

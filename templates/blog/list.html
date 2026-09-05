@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Legal Insights & Articles — {{ site_config.firm_name }}{% endblock %}
+{% block meta_description %}Read analysis, legal updates, case law summaries, and commentaries from the advocates of {{ site_config.firm_name }}.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="bg-charcoal-900 text-off-white py-20 relative overflow-hidden border-b border-charcoal-800">
+  <div class="grain-overlay"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div data-reveal data-reveal-delay="0">
+      <span class="kicker kicker--center text-gold uppercase tracking-widest text-xs font-semibold mb-4">
+        Articles & Publications
+      </span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-off-white mt-2 mb-4 tracking-tight" data-reveal data-reveal-delay="80">
+      Legal Insights & Commentary
+    </h1>
+    <p class="text-charcoal-300 text-base sm:text-lg max-w-2xl mx-auto" data-reveal data-reveal-delay="160">
+      Authoritative jurisprudence commentary, regulatory developments, and courtroom analysis.
+    </p>
+  </div>
+</section>
+
+<!-- Category Filter Pills + Post Grid -->
+<section class="py-20 bg-off-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Categories Tab Strip -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-16" data-reveal data-reveal-delay="80">
+      <a href="{% url 'blog:list' %}"
+         class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 {% if not active_category %}bg-gold text-charcoal-950 shadow-gold{% else %}bg-white text-charcoal-700 hover:bg-charcoal-100 border border-charcoal-200{% endif %}">
+        All Categories
+      </a>
+      {% for cat in categories %}
+      <a href="{% url 'blog:category' cat.slug %}"
+         class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 {% if active_category.slug == cat.slug %}bg-gold text-charcoal-950 shadow-gold{% else %}bg-white text-charcoal-700 hover:bg-charcoal-100 border border-charcoal-200{% endif %}">
+        {{ cat.name }}
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for post in posts %}
+        <div data-reveal data-reveal-delay="{% cycle '0' '100' '200' %}" class="h-full">
+          {% include "components/blog_card.html" with post=post %}
+        </div>
+      {% empty %}
+        <div class="col-span-3 text-center py-16">
+          <p class="text-charcoal-500 text-lg">No articles found in this category.</p>
+          <a href="{% url 'blog:list' %}" class="btn-gold-outline mt-4">View All Posts</a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <div class="mt-16 flex justify-center items-center gap-2">
+      {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}" class="px-4 py-2 border border-charcoal-200 bg-white rounded text-sm text-charcoal-700 hover:text-gold">
+        ← Previous
+      </a>
+      {% endif %}
+
+      <span class="px-4 py-2 text-sm text-charcoal-500">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      </span>
+
+      {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 border border-charcoal-200 bg-white rounded text-sm text-charcoal-700 hover:text-gold">
+        Next →
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<!-- CTA Band -->
+{% include "components/cta_band.html" %}
+
+{% endblock %}

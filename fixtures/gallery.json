@@ -1,0 +1,112 @@
+[
+  {
+    "model": "gallery.galleryimage",
+    "pk": 1,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "High Court courtroom and bench during senior counsel arguments",
+      "caption": "Chambers representation before the High Court Division Bench.",
+      "category": "justice",
+      "order": 1
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 2,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "Main chambers library with historical legal reporters and conference table",
+      "caption": "The chambers research library housing over 15,000 legal volumes and commentaries.",
+      "category": "office",
+      "order": 2
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 3,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "Chambers associates collaborating on corporate briefing strategy",
+      "caption": "Our litigation strategy team conducting case brief review sessions.",
+      "category": "team",
+      "order": 3
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 4,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "National Law Conference key address on Arbitration reform",
+      "caption": "Keynote address delivered at the Annual Commercial Arbitration Conclave.",
+      "category": "event",
+      "order": 4
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 5,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "Lady Justice bronze statue and legal brief filings",
+      "caption": "Supreme Court of India appellate filings preparation.",
+      "category": "justice",
+      "order": 5
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 6,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "Partner consultation chamber and client meeting suite",
+      "caption": "Private client briefing suite at our central chambers.",
+      "category": "office",
+      "order": 6
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 7,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "Chambers team at the High Court Bar Association felicitation",
+      "caption": "Members of Subhash Mishra & Associates at the High Court Bar Association assembly.",
+      "category": "team",
+      "order": 7
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 8,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "Moot Court competition judging panel at National Law Institute",
+      "caption": "Presiding as guest judge at the All India Constitutional Moot Court.",
+      "category": "event",
+      "order": 8
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 9,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "Commercial appellate tribunal premises",
+      "caption": "Appearances before the National Company Law Appellate Tribunal.",
+      "category": "justice",
+      "order": 9
+    }
+  },
+  {
+    "model": "gallery.galleryimage",
+    "pk": 10,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80",
+      "alt_text": "Senior partners in conference during corporate merger closing",
+      "caption": "Advising enterprise boards on cross-border transactions and joint ventures.",
+      "category": "office",
+      "order": 10
+    }
+  }
+]

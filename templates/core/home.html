@@ -1,0 +1,466 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}{{ site_config.firm_name }} — {{ site_config.firm_tagline }}{% endblock %}
+{% block meta_description %}{{ site_config.footer_about_text }}{% endblock %}
+
+{% block content %}
+
+<!-- 1. Hero Carousel Section -->
+{% include "components/hero_carousel.html" %}
+
+<!-- 2. Client Logo Strip -->
+{% include "components/client_logo_strip.html" %}
+
+<!-- 3. About Section (Full content) -->
+<section id="about" class="py-24 bg-white border-b border-charcoal-100 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
+
+      <div class="lg:col-span-7">
+        <div data-reveal data-reveal-delay="0">
+          <span class="kicker text-gold uppercase tracking-widest text-xs sm:text-sm font-semibold mb-4">
+            About {{ site_config.firm_name }}
+          </span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-charcoal-900 mt-2 mb-6 leading-tight" data-reveal data-reveal-delay="80">
+          {{ about_page.intro_heading|default:"A Legacy of Distinguished Advocacy & Strategic Counsel" }}
+        </h2>
+        <div class="prose prose-sm sm:prose-base text-charcoal-600 mb-8 max-w-none" data-reveal data-reveal-delay="160">
+          {% if about_page.intro_text %}
+            {{ about_page.intro_text|safe }}
+          {% else %}
+            <p>{{ site_config.firm_name }} is a full-service litigation and advisory chambers committed to providing principled, strategic, and result-oriented legal representation across trial courts, High Courts, and the Supreme Court of India.</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="lg:col-span-5" data-reveal data-reveal-delay="150">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gold/10 rounded-lg transform -rotate-1 pointer-events-none"></div>
+          <div class="relative rounded-lg overflow-hidden shadow-card border border-charcoal-100 h-96 sm:h-[460px] bg-charcoal-800">
+            <img src="{% if about_page.intro_image %}{{ about_page.intro_image.url }}{% else %}https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80{% endif %}"
+                 alt="{{ about_page.intro_image_alt|default:site_config.firm_name }}"
+                 class="w-full h-full object-cover"
+                 loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 px-4 sm:px-8 bg-charcoal-950 text-off-white rounded-lg mb-20">
+      <div data-reveal data-reveal-delay="0">
+        {% include "components/stat_block.html" with value=about_page.years_experience|default:25 label="Years of Experience" suffix="+" %}
+      </div>
+      <div data-reveal data-reveal-delay="100">
+        {% include "components/stat_block.html" with value=about_page.cases_won|default:1200 label="Matters Handled" suffix="+" %}
+      </div>
+      <div data-reveal data-reveal-delay="200">
+        {% include "components/stat_block.html" with value=about_page.clients_served|default:850 label="Clients Advised" suffix="+" %}
+      </div>
+      <div data-reveal data-reveal-delay="300">
+        {% include "components/stat_block.html" with value=about_page.team_size|default:15 label="Advocates & Staff" suffix="" %}
+      </div>
+    </div>
+
+    <!-- Mission, Vision & Ethics -->
+    {% include "components/section_heading.html" with kicker="Core Tenets" heading="Mission, Vision & Ethics" subtitle="The ethical benchmarks and guiding philosophy that govern every brief we accept." %}
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="card p-8 bg-white flex flex-col justify-between" data-reveal data-reveal-delay="0">
+        <div>
+          <div class="w-12 h-12 rounded bg-gold/10 text-gold flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-charcoal-900 mb-4">Our Mission</h3>
+          <div class="prose prose-sm text-charcoal-600">
+            {% if about_page.mission %}
+              {{ about_page.mission|safe }}
+            {% else %}
+              <p>To deliver uncompromising advocacy and pragmatic solutions with absolute dedication to the rule of law and client confidentiality.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-8 bg-white flex flex-col justify-between" data-reveal data-reveal-delay="120">
+        <div>
+          <div class="w-12 h-12 rounded bg-gold/10 text-gold flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-charcoal-900 mb-4">Our Vision</h3>
+          <div class="prose prose-sm text-charcoal-600">
+            {% if about_page.vision %}
+              {{ about_page.vision|safe }}
+            {% else %}
+              <p>To be recognized as India's foremost specialized litigation chambers, standardizing excellence and precision across high-stakes matters.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-8 bg-white flex flex-col justify-between" data-reveal data-reveal-delay="240">
+        <div>
+          <div class="w-12 h-12 rounded bg-gold/10 text-gold flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-charcoal-900 mb-4">Professional Ethics</h3>
+          <div class="prose prose-sm text-charcoal-600">
+            {% if about_page.ethics %}
+              {{ about_page.ethics|safe }}
+            {% else %}
+              <p>Adherence to the highest standards of the Bar Council of India, maintaining absolute candour to the court and complete fidelity to our clients.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4. Practice Areas Grid (3-column layout) -->
+<section class="py-24 bg-off-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {% include "components/section_heading.html" with kicker="Our Areas of Expertise" heading="Practice & Litigation Areas" subtitle="Comprehensive legal advocacy delivered with specialized domain knowledge across commercial, civil, and regulatory law." %}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for area in practice_areas %}
+        <div data-reveal data-reveal-delay="{% cycle '0' '100' '200' %}" class="h-full">
+          {% include "components/practice_area_card.html" with area=area %}
+        </div>
+      {% empty %}
+        <p class="col-span-3 text-center text-charcoal-500 py-12">Practice areas will appear here once configured in the admin panel.</p>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-16" data-reveal data-reveal-delay="150">
+      <a href="{% url 'practice_areas:list' %}" class="btn-gold-outline px-8 py-3.5 font-bold uppercase tracking-wider text-xs">
+        View All Practice Areas →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Founder Spotlight -->
+{% if founder %}
+<section class="py-24 bg-charcoal-900 text-off-white relative overflow-hidden border-y border-charcoal-800">
+  <div class="grain-overlay"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-charcoal-950/80 border border-charcoal-700/60 rounded-xl p-8 sm:p-12 lg:p-16 shadow-2xl backdrop-blur-sm">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+        <div class="lg:col-span-4" data-reveal data-reveal-delay="0">
+          <div class="relative rounded-lg overflow-hidden aspect-square max-w-sm mx-auto bg-charcoal-800 border-2 border-gold/30 shadow-gold">
+            <img src="{% if founder.photo %}{{ founder.photo.url }}{% else %}https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80{% endif %}"
+                 alt="{{ founder.photo_alt|default:founder.name }}"
+                 class="w-full h-full object-cover object-top"
+                 loading="lazy" />
+          </div>
+        </div>
+
+        <div class="lg:col-span-8">
+          <span class="kicker text-gold uppercase tracking-widest text-xs font-semibold mb-2" data-reveal data-reveal-delay="60">
+            Founder & Managing Partner
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-off-white mt-2 mb-2" data-reveal data-reveal-delay="120">
+            {{ founder.name }}
+          </h2>
+          <p class="text-gold text-sm font-semibold tracking-wide uppercase mb-6" data-reveal data-reveal-delay="180">
+            {{ founder.designation }}
+          </p>
+          <div class="w-16 h-0.5 bg-gold mb-6" data-reveal data-reveal-delay="220"></div>
+          <p class="text-charcoal-200 text-base sm:text-lg leading-relaxed mb-8" data-reveal data-reveal-delay="260">
+            {{ founder.bio|linebreaksbr }}
+          </p>
+          <div class="flex flex-wrap items-center gap-4" data-reveal data-reveal-delay="300">
+            <a href="{% url 'contact:contact' %}" class="btn-gold">
+              Consult {{ founder.name }}
+              <span class="arrow-icon ml-1">→</span>
+            </a>
+            {% if founder.linkedin_url %}
+            <a href="{{ founder.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="btn-white-outline">
+              LinkedIn Profile
+            </a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Team Section -->
+<section id="team" class="py-24 bg-off-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {% include "components/section_heading.html" with kicker="Meet Our Advocates" heading="Our Team" subtitle="Experienced counsel dedicated to rigorous preparation and principled representation." %}
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for member in team_members %}
+        <div data-reveal data-reveal-delay="{% cycle '0' '100' '200' %}" class="h-full">
+          {% include "components/team_card.html" with member=member %}
+        </div>
+      {% empty %}
+        <p class="col-span-3 text-center text-charcoal-500 py-12">Team members will appear here once added in the admin panel.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 6. Gallery Section Preview with Alpine.js Lightbox -->
+<section id="gallery" class="py-24 bg-white scroll-mt-20" x-data="galleryLightbox()" x-init="initImages([
+  {% for img in gallery_images %}
+  {
+    src: '{% if img.image %}{{ img.image.url }}{% else %}https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80{% endif %}',
+    alt: '{{ img.alt_text|escapejs }}',
+    caption: '{{ img.caption|escapejs }}',
+    category: '{{ img.category }}'
+  }{% if not forloop.last %},{% endif %}
+  {% endfor %}
+])">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {% include "components/section_heading.html" with kicker="Behind The Chambers" heading="Glimpses of Our Chambers & Practice" subtitle="A visual journey through our offices, court appearances, scholarly conferences, and legal symposiums." %}
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for item in gallery_images %}
+        <div data-reveal data-reveal-delay="{% cycle '0' '80' '160' '240' %}">
+          {% include "components/gallery_item.html" with item=item index=forloop.counter0 %}
+        </div>
+      {% empty %}
+        <p class="col-span-4 text-center text-charcoal-500 py-8">Gallery photos will appear here once added in admin.</p>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-12" data-reveal data-reveal-delay="150">
+      <a href="{% url 'gallery:gallery' %}" class="btn-gold-outline px-8 py-3.5 font-bold uppercase tracking-wider text-xs">
+        View Full Gallery →
+      </a>
+    </div>
+  </div>
+
+  <!-- Reusable Lightbox Modal -->
+  <div x-show="isOpen"
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0"
+       x-transition:enter-end="opacity-100"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100"
+       x-transition:leave-end="opacity-0"
+       class="lightbox"
+       style="display: none;"
+       @click.self="close()">
+
+    <button @click="close()" class="absolute top-6 right-6 text-off-white hover:text-gold text-3xl font-light z-50 p-2" aria-label="Close Lightbox">
+      ✕
+    </button>
+    <button @click="prevImage()" class="absolute left-6 top-1/2 -translate-y-1/2 text-off-white hover:text-gold text-4xl font-light z-50 p-3 bg-charcoal-900/60 rounded-full" aria-label="Previous image">
+      ‹
+    </button>
+    <button @click="nextImage()" class="absolute right-6 top-1/2 -translate-y-1/2 text-off-white hover:text-gold text-4xl font-light z-50 p-3 bg-charcoal-900/60 rounded-full" aria-label="Next image">
+      ›
+    </button>
+
+    <div class="max-w-5xl max-h-[85vh] flex flex-col items-center">
+      <img :src="currentSrc" :alt="currentAlt" class="max-w-full max-h-[75vh] object-contain rounded shadow-2xl" />
+      <p x-show="currentCaption" x-text="currentCaption" class="text-charcoal-200 text-sm mt-4 text-center max-w-2xl"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Dark CTA Band -->
+{% include "components/cta_band.html" with kicker="Consultation & Legal Advisory" heading="Facing a Complex Legal Dispute?" description="Reach out to our chambers for decisive representation and counsel backed by decades of proven courtroom excellence." %}
+
+<!-- 8. Latest Blog / Insights Preview -->
+<section id="blog" class="py-24 bg-off-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {% include "components/section_heading.html" with kicker="Legal Insights & Commentary" heading="From Our Chambers" subtitle="Scholarly analyses, landmark case summaries, and regulatory updates authored by our advocates." %}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for post in latest_posts %}
+        <div data-reveal data-reveal-delay="{% cycle '0' '100' '200' %}" class="h-full">
+          {% include "components/blog_card.html" with post=post %}
+        </div>
+      {% empty %}
+        <p class="col-span-3 text-center text-charcoal-500 py-12">Legal articles and updates will appear here once published.</p>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-16" data-reveal data-reveal-delay="150">
+      <a href="{% url 'blog:list' %}" class="btn-gold-outline px-8 py-3.5 font-bold uppercase tracking-wider text-xs">
+        Read All Insights →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 bg-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {% include "components/section_heading.html" with kicker="Get in Touch" heading="Contact Our Chambers" subtitle="Schedule a confidential consultation. Our advocates respond promptly to all inquiries." %}
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+      <div class="lg:col-span-7" data-reveal data-reveal-delay="0">
+        <div class="card p-8 sm:p-10 bg-white border-charcoal-100 shadow-card">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-charcoal-900 mb-2">
+            Send Us a Message
+          </h3>
+          <p class="text-charcoal-600 text-sm mb-8">
+            Please fill in the details below. All communications are strictly confidential.
+          </p>
+
+          <form method="post" action="{% url 'contact:contact' %}" class="space-y-6">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+            <div class="p-4 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+              {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="{{ form.name.id_for_label }}" class="block text-xs font-bold uppercase tracking-wider text-charcoal-700 mb-2">
+                  Full Name <span class="text-gold">*</span>
+                </label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.name.errors.0 }}</p>
+                {% endif %}
+              </div>
+
+              <div>
+                <label for="{{ form.email.id_for_label }}" class="block text-xs font-bold uppercase tracking-wider text-charcoal-700 mb-2">
+                  Email Address <span class="text-gold">*</span>
+                </label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.email.errors.0 }}</p>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="{{ form.phone.id_for_label }}" class="block text-xs font-bold uppercase tracking-wider text-charcoal-700 mb-2">
+                  Phone Number
+                </label>
+                {{ form.phone }}
+                {% if form.phone.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.phone.errors.0 }}</p>
+                {% endif %}
+              </div>
+
+              <div>
+                <label for="{{ form.subject.id_for_label }}" class="block text-xs font-bold uppercase tracking-wider text-charcoal-700 mb-2">
+                  Subject / Nature of Matter <span class="text-gold">*</span>
+                </label>
+                {{ form.subject }}
+                {% if form.subject.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.subject.errors.0 }}</p>
+                {% endif %}
+              </div>
+            </div>
+
+            <div>
+              <label for="{{ form.message.id_for_label }}" class="block text-xs font-bold uppercase tracking-wider text-charcoal-700 mb-2">
+                Your Message / Brief Summary <span class="text-gold">*</span>
+              </label>
+              {{ form.message }}
+              {% if form.message.errors %}
+              <p class="text-red-500 text-xs mt-1">{{ form.message.errors.0 }}</p>
+              {% endif %}
+            </div>
+
+            <button type="submit" class="btn-gold w-full sm:w-auto px-10 py-4 text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-gold">
+              Submit Inquiry
+              <span class="arrow-icon ml-1">→</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 space-y-8">
+        <div class="card p-8 bg-charcoal-900 text-off-white border-charcoal-800" data-reveal data-reveal-delay="100">
+          <h3 class="font-display text-2xl font-bold text-gold mb-6">Chambers Information</h3>
+
+          <div class="space-y-6 text-sm">
+            {% if site_config.full_address %}
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded bg-gold/10 text-gold flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs uppercase text-gold/80 block font-semibold mb-1">Office Address</span>
+                <address class="not-italic text-charcoal-200 leading-relaxed">{{ site_config.full_address }}</address>
+              </div>
+            </div>
+            {% endif %}
+
+            {% if site_config.phone_primary %}
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded bg-gold/10 text-gold flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs uppercase text-gold/80 block font-semibold mb-1">Telephone</span>
+                <a href="tel:{{ site_config.phone_primary }}" class="text-off-white hover:text-gold font-medium">{{ site_config.phone_primary }}</a>
+                {% if site_config.phone_secondary %}
+                <span class="text-charcoal-400"> / </span>
+                <a href="tel:{{ site_config.phone_secondary }}" class="text-off-white hover:text-gold font-medium">{{ site_config.phone_secondary }}</a>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+
+            {% if site_config.email_primary %}
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded bg-gold/10 text-gold flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs uppercase text-gold/80 block font-semibold mb-1">Email</span>
+                <a href="mailto:{{ site_config.email_primary }}" class="text-off-white hover:text-gold font-medium">{{ site_config.email_primary }}</a>
+              </div>
+            </div>
+            {% endif %}
+
+            {% if site_config.office_hours %}
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded bg-gold/10 text-gold flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs uppercase text-gold/80 block font-semibold mb-1">Working Hours</span>
+                <p class="text-charcoal-200">{{ site_config.office_hours }}</p>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        {% if site_config.google_map_embed_url %}
+        <div class="card overflow-hidden h-64 border-charcoal-200" data-reveal data-reveal-delay="200">
+          <iframe
+            src="{{ site_config.google_map_embed_url }}"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            title="{{ site_config.firm_name }} Office Map">
+          </iframe>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

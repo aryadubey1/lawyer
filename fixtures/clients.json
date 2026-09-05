@@ -1,0 +1,57 @@
+[
+  {
+    "model": "clients.clientlogo",
+    "pk": 1,
+    "fields": {
+      "name": "Madhya Pradesh Power Corporation",
+      "logo": "",
+      "logo_alt": "MP Power Corp logo",
+      "url": "https://example.com",
+      "order": 1
+    }
+  },
+  {
+    "model": "clients.clientlogo",
+    "pk": 2,
+    "fields": {
+      "name": "Apex Infrastructure Holdings",
+      "logo": "",
+      "logo_alt": "Apex Infra logo",
+      "url": "https://example.com",
+      "order": 2
+    }
+  },
+  {
+    "model": "clients.clientlogo",
+    "pk": 3,
+    "fields": {
+      "name": "Central Mineral Resources Ltd",
+      "logo": "",
+      "logo_alt": "Central Minerals logo",
+      "url": "https://example.com",
+      "order": 3
+    }
+  },
+  {
+    "model": "clients.clientlogo",
+    "pk": 4,
+    "fields": {
+      "name": "Bharat Commercial Banking Group",
+      "logo": "",
+      "logo_alt": "Bharat Banking logo",
+      "url": "https://example.com",
+      "order": 4
+    }
+  },
+  {
+    "model": "clients.clientlogo",
+    "pk": 5,
+    "fields": {
+      "name": "Vindhya Real Estate Developers",
+      "logo": "",
+      "logo_alt": "Vindhya Realty logo",
+      "url": "https://example.com",
+      "order": 5
+    }
+  }
+]

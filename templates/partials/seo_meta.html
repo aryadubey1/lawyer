@@ -1,0 +1,20 @@
+{% load static %}
+{# SEO meta partial — include in {% block seo %} on each page template #}
+
+<title>{% block meta_title %}{{ site_config.firm_name }} | Excellence in Legal Practice{% endblock %}</title>
+<meta name="description" content="{% block meta_description %}{{ site_config.firm_tagline }}{% endblock %}" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{ site_config.firm_name }}" />
+<meta property="og:title" content="{% block og_title %}{{ site_config.firm_name }}{% endblock %}" />
+<meta property="og:description" content="{% block og_description %}{{ site_config.firm_tagline }}{% endblock %}" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{% block twitter_title %}{{ site_config.firm_name }}{% endblock %}" />
+<meta name="twitter:description" content="{% block twitter_description %}{{ site_config.firm_tagline }}{% endblock %}" />
+
+<!-- Canonical -->
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />

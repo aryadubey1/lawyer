@@ -1,0 +1,38 @@
+{# Page loader — branded boot-up screen, shown once per session #}
+<div id="page-loader"
+     class="fixed inset-0 z-[9999] bg-charcoal-950 flex flex-col items-center justify-center"
+     aria-hidden="true">
+
+  {# Wordmark — reuses the same split-styling pattern from navbar.html / footer.html #}
+  <div id="loader-wordmark" class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-off-white tracking-tight opacity-0">
+    <span class="text-gold">{{ site_config.firm_name_lead }}</span>{% if site_config.firm_name_rest %} {{ site_config.firm_name_rest }}{% endif %}
+  </div>
+
+  {# Balance / scales SVG icon — stroke-draw animation via dasharray/dashoffset #}
+  <svg id="loader-scales"
+       class="text-gold mt-6 opacity-0"
+       width="48" height="48" viewBox="0 0 48 48"
+       fill="none" stroke="currentColor" stroke-width="1.8"
+       stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true">
+    {# Center pillar #}
+    <line x1="24" y1="8" x2="24" y2="42" class="loader-scales-path" />
+    {# Top beam #}
+    <line x1="8" y1="14" x2="40" y2="14" class="loader-scales-path" />
+    {# Left chain #}
+    <line x1="8" y1="14" x2="8" y2="26" class="loader-scales-path" />
+    {# Right chain #}
+    <line x1="40" y1="14" x2="40" y2="26" class="loader-scales-path" />
+    {# Left pan (arc) #}
+    <path d="M2 26 C2 32, 14 32, 14 26" class="loader-scales-path" />
+    {# Right pan (arc) #}
+    <path d="M34 26 C34 32, 46 32, 46 26" class="loader-scales-path" />
+    {# Base #}
+    <line x1="18" y1="42" x2="30" y2="42" class="loader-scales-path" />
+    {# Top cap (small circle/diamond above pillar) #}
+    <circle cx="24" cy="8" r="2.5" class="loader-scales-path" />
+  </svg>
+
+  {# Horizontal rule — expands from center #}
+  <div id="loader-rule" class="mt-6 h-[1.5px] bg-gold" style="width: 0;"></div>
+</div>

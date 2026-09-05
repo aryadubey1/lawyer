@@ -1,0 +1,14 @@
+{# Gallery item component with click-to-lightbox trigger #}
+<div class="gallery-item group relative h-64 rounded-lg overflow-hidden bg-charcoal-800 shadow-card cursor-pointer"
+     @click="open({{ index }}, '{% if item.image %}{{ item.image.url }}{% else %}https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80{% endif %}', '{{ item.alt_text|escapejs }}', '{{ item.caption|escapejs }}')">
+
+  <img src="{% if item.image %}{{ item.image.url }}{% else %}https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80{% endif %}"
+       alt="{{ item.alt_text }}"
+       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+       loading="lazy" />
+
+  <div class="overlay absolute inset-0 bg-charcoal-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+    <span class="text-xs uppercase font-bold text-gold tracking-widest">{{ item.get_category_display }}</span>
+    <p class="text-off-white text-sm font-medium line-clamp-1 mt-1">{{ item.caption|default:item.alt_text }}</p>
+  </div>
+</div>

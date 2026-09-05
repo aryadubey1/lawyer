@@ -1,0 +1,92 @@
+[
+  {
+    "model": "team.teammember",
+    "pk": 1,
+    "fields": {
+      "name": "Subhash Mishra",
+      "designation": "Senior Advocate & Managing Partner",
+      "bio": "With over 28 years of distinguished courtroom practice, Adv. Subhash Mishra is widely recognized for his authoritative advocacy across Constitutional Law, Corporate Dispute Resolution, and high-stakes Civil Appeals before the High Court of Madhya Pradesh and the Supreme Court of India. He has served as special counsel to statutory bodies and multinational corporations in landmark regulatory litigations.",
+      "photo": "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80",
+      "photo_alt": "Advocate Subhash Mishra — Managing Partner",
+      "is_founder": true,
+      "linkedin_url": "https://linkedin.com",
+      "order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "team.teammember",
+    "pk": 2,
+    "fields": {
+      "name": "Vikramaditya Sharma",
+      "designation": "Partner — Corporate & IBC Practice",
+      "bio": "Specializing in Insolvency and Bankruptcy Code (IBC) proceedings and corporate restructurings, Adv. Vikramaditya Sharma represents financial institutions and resolution applicants across NCLT benches nationwide.",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      "photo_alt": "Advocate Vikramaditya Sharma — Partner",
+      "is_founder": false,
+      "linkedin_url": "https://linkedin.com",
+      "order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "team.teammember",
+    "pk": 3,
+    "fields": {
+      "name": "Ananya Deshmukh",
+      "designation": "Principal Associate — Commercial Arbitration & ADR",
+      "bio": "Ananya leads the chambers' arbitration desk, holding extensive experience in SIAC and domestic ad-hoc commercial dispute resolutions, construction claims, and concession disputes.",
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      "photo_alt": "Advocate Ananya Deshmukh — Principal Associate",
+      "is_founder": false,
+      "linkedin_url": "https://linkedin.com",
+      "order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "team.teammember",
+    "pk": 4,
+    "fields": {
+      "name": "Rohan Vardhan",
+      "designation": "Senior Associate — Real Estate & Civil Litigation",
+      "bio": "Rohan brings ten years of focused practice in real estate title verifications, RERA enforcement petitions, and original side civil property litigation before district and appellate courts.",
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+      "photo_alt": "Advocate Rohan Vardhan — Senior Associate",
+      "is_founder": false,
+      "linkedin_url": "https://linkedin.com",
+      "order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "team.teammember",
+    "pk": 5,
+    "fields": {
+      "name": "Pooja Verma",
+      "designation": "Associate — Intellectual Property & Competition",
+      "bio": "Pooja advises technology and manufacturing clients on trademark opposition, patent drafting, and antitrust compliance before the Competition Commission of India.",
+      "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+      "photo_alt": "Advocate Pooja Verma — Associate",
+      "is_founder": false,
+      "linkedin_url": "https://linkedin.com",
+      "order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "team.teammember",
+    "pk": 6,
+    "fields": {
+      "name": "Arjun Pratap Singh",
+      "designation": "Associate — Criminal Trial & White Collar Defense",
+      "bio": "Arjun focuses on economic offenses defense, PMLA investigations, and trial advocacy before Special CBI and Sessions Courts.",
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+      "photo_alt": "Advocate Arjun Pratap Singh — Associate",
+      "is_founder": false,
+      "linkedin_url": "https://linkedin.com",
+      "order": 6,
+      "is_active": true
+    }
+  }
+]

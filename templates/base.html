@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  {% block seo %}
+    {% include "partials/seo_meta.html" %}
+  {% endblock %}
+
+  <!-- Google Fonts: Playfair Display (display) + Manrope (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet" />
+
+  <!-- Alpine Components (must load and register BEFORE Alpine.js initializes) -->
+  <script src="{% static 'js/alpine-components.js' %}" defer></script>
+  <!-- Alpine.js (defer so DOM is parsed first) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Tailwind compiled CSS -->
+  <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}" />
+
+  <!-- CKEditor (only for admin, but needed if inline display) -->
+  {% block extra_css %}{% endblock %}
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon/favicon.ico' %}" />
+
+</head>
+<body x-data class="font-body text-charcoal-900 bg-off-white">
+
+  <!-- ─── Page Loader (branded boot-up screen, once per session) ── -->
+  {% include "partials/page_loader.html" %}
+  <script>
+    // Synchronous check: hide loader immediately if already shown this session
+    // (full animation is orchestrated later in main.js)
+    try {
+      if (sessionStorage.getItem('lc_loaded') === '1') {
+        document.getElementById('page-loader').style.display = 'none';
+      }
+    } catch(e) {}
+  </script>
+
+  <!-- ─── Top Utility Bar ─────────────────────────────────────── -->
+  {% include "partials/topbar.html" %}
+
+  <!-- ─── Main Navigation + Mobile Menu (shared Alpine scope) ─ -->
+  <div x-data="mobileMenu()" @keydown.escape.window="close()">
+    {% include "partials/navbar.html" %}
+    {% include "partials/mobile_menu.html" %}
+  </div>
+
+  <!-- ─── Main Content ───────────────────────────────────────── -->
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ─── Footer ─────────────────────────────────────────────── -->
+  {% include "partials/footer.html" %}
+
+  <!-- ─── Back to Top ────────────────────────────────────────── -->
+  {% include "partials/back_to_top.html" %}
+
+  <!-- ─── Main JS ────────────────────────────────────────────── -->
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+
+</body>
+</html>

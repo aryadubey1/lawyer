@@ -1,0 +1,30 @@
+{# Call To Action Band Component #}
+<section class="cta-band bg-charcoal-900 py-24 relative overflow-hidden text-center border-t border-charcoal-800">
+  <div class="grain-overlay"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-gold text-xs sm:text-sm font-semibold uppercase tracking-widest mb-4" data-reveal data-reveal-delay="0">
+      {{ kicker|default:"Prompt, Strategic, and Decisive Legal Representation" }}
+    </p>
+
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-off-white mb-6 leading-tight" data-reveal data-reveal-delay="90">
+      {{ heading|default:"Ready To Discuss Your Legal Strategy?" }}
+    </h2>
+
+    <p class="text-charcoal-300 text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed" data-reveal data-reveal-delay="180">
+      {{ description|default:"Our experienced litigators and corporate advisors are ready to protect your interests. Schedule an initial confidential consultation today." }}
+    </p>
+
+    <div class="flex flex-wrap gap-4 justify-center" data-reveal data-reveal-delay="260">
+      <a href="{% url 'contact:contact' %}" class="btn-gold px-8 py-4 text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-gold">
+        {{ button_text|default:"Schedule Consultation" }}
+        <span class="arrow-icon inline-block ml-1">→</span>
+      </a>
+      {% if site_config.phone_primary %}
+      <a href="tel:{{ site_config.phone_primary }}" class="btn-white-outline px-8 py-4 text-sm font-semibold uppercase tracking-wider">
+        Call {{ site_config.phone_primary }}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</section>

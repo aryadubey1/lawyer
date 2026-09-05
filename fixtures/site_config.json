@@ -1,0 +1,58 @@
+[
+  {
+    "model": "core.siteconfig",
+    "pk": 1,
+    "fields": {
+      "firm_name": "Subhash Mishra & Associates",
+      "firm_tagline": "Excellence in Legal Practice & Supreme Court Advocacy",
+      "footer_about_text": "Subhash Mishra & Associates is a premier litigation and corporate law firm committed to providing strategic advocacy, rigorous legal analysis, and courtroom excellence.",
+      "phone_primary": "+91 755 244 8900",
+      "phone_secondary": "+91 98260 12345",
+      "email_primary": "contact@subhashmishra.com",
+      "office_hours": "Mon–Sat 09:30–19:30",
+      "address_line_1": "Radhapuram Colony, Indus Town,",
+      "address_line_2": "Ratanpur Sadak, Bhopal, Madhya Pradesh 462046",
+      "city": "Bhopal",
+      "state": "Madhya Pradesh",
+      "pincode": "462046",
+      "google_map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117320.65582319915!2d77.33230678822073!3d23.23325608753232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+      "facebook_url": "https://facebook.com",
+      "linkedin_url": "https://www.linkedin.com/in/subhash-mishra-0276421b4/",
+      "twitter_url": "https://x.com",
+      "instagram_url": "https://www.instagram.com/subhashmishra15/?hl=en",
+      "telegram_bot_token": "",
+      "telegram_chat_id": "",
+      "show_client_logos_section": true
+    }
+  },
+  {
+    "model": "core.heroslide",
+    "pk": 1,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80",
+      "image_alt": "Law library and constitution",
+      "kicker": "Advocates & Legal Consultants",
+      "heading": "Strategic Advocacy With Uncompromising Integrity",
+      "subheading": "Specialized courtroom representation across High Courts, Supreme Court of India, National Tribunals, and commercial dispute arbitration.",
+      "cta_text": "Request Legal Consultation",
+      "cta_url": "/contact/",
+      "order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.heroslide",
+    "pk": 2,
+    "fields": {
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80",
+      "image_alt": "Modern corporate skyline and legal advisory",
+      "kicker": "Commercial & Corporate Litigation",
+      "heading": "Defending Corporate Interests Across India",
+      "subheading": "Advising enterprise boards, public sector undertakings, and financial institutions on high-stakes insolvency, competition, and regulatory compliance.",
+      "cta_text": "Explore Practice Areas",
+      "cta_url": "/practice-areas/",
+      "order": 2,
+      "is_active": true
+    }
+  }
+]

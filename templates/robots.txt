@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /pages/
+
+Sitemap: https://lexchambers.in/sitemap.xml

@@ -1,0 +1,9 @@
+{# Stat Block Component #}
+<div class="stat-block text-center p-6 bg-charcoal-900/60 rounded-lg border border-charcoal-700/50 backdrop-blur-sm" data-reveal>
+  <div class="number font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gold tracking-tight">
+    <span data-counter data-counter-to="{{ value }}" data-counter-suffix="{{ suffix|default:'+' }}">0</span>
+  </div>
+  <div class="label text-xs sm:text-sm uppercase font-bold tracking-widest text-charcoal-300 mt-2">
+    {{ label }}
+  </div>
+</div>

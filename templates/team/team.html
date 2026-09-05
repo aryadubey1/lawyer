@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Our Team — {{ site_config.firm_name }}{% endblock %}
+{% block meta_description %}Meet the experienced advocates, counsel, and legal associates of {{ site_config.firm_name }}.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="bg-charcoal-900 text-off-white py-20 relative overflow-hidden border-b border-charcoal-800">
+  <div class="grain-overlay"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="kicker kicker--center text-gold uppercase tracking-widest text-xs font-semibold mb-4">
+      Legal Minds & Advocates
+    </span>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-off-white mt-2 mb-4 tracking-tight">
+      Our Legal Team
+    </h1>
+    <p class="text-charcoal-300 text-base sm:text-lg max-w-2xl mx-auto">
+      Seasoned litigators and astute advisors committed to exacting standards of legal scholarship and advocacy.
+    </p>
+  </div>
+</section>
+
+<!-- Founder Section -->
+{% if founder %}
+<section class="py-20 bg-white border-b border-charcoal-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-off-white rounded-xl p-8 sm:p-12 border border-charcoal-100 shadow-card">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-4" data-reveal data-reveal-delay="0">
+          <div class="rounded-lg overflow-hidden border-2 border-gold aspect-square bg-charcoal-800 shadow-md">
+            <img src="{% if founder.photo %}{{ founder.photo.url }}{% else %}https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80{% endif %}"
+                 alt="{{ founder.name }}"
+                 class="w-full h-full object-cover object-top" />
+          </div>
+        </div>
+        <div class="lg:col-span-8">
+          <div data-reveal data-reveal-delay="60">
+            <span class="bg-gold text-charcoal-950 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded inline-block mb-3">
+              Founder & Managing Partner
+            </span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-charcoal-900 mb-2" data-reveal data-reveal-delay="120">{{ founder.name }}</h2>
+          <p class="text-gold font-semibold uppercase text-xs tracking-widest mb-6" data-reveal data-reveal-delay="180">{{ founder.designation }}</p>
+          <div class="w-12 h-0.5 bg-gold mb-6" data-reveal data-reveal-delay="220"></div>
+          <p class="text-charcoal-700 leading-relaxed text-base mb-6" data-reveal data-reveal-delay="260">{{ founder.bio }}</p>
+          <div class="flex gap-4" data-reveal data-reveal-delay="300">
+            <a href="{% url 'contact:contact' %}" class="btn-gold">Consult Directly</a>
+            {% if founder.linkedin_url %}
+            <a href="{{ founder.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="btn-gold-outline">LinkedIn Profile</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Associates & Counsel Grid -->
+<section class="py-24 bg-off-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {% include "components/section_heading.html" with kicker="Advocates & Counsel" heading="Chambers Associates" subtitle="Our team combines courtroom tenacity with sharp analytical rigor across civil, corporate, and dispute resolution matters." %}
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      {% for member in team_members %}
+        {% if not member.is_founder %}
+          <div data-reveal data-reveal-delay="{% cycle '0' '80' '160' '240' %}" class="h-full">
+            {% include "components/team_card.html" with member=member %}
+          </div>
+        {% endif %}
+      {% empty %}
+        <p class="col-span-4 text-center text-charcoal-500 py-12">Team members will appear here once configured.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Band -->
+{% include "components/cta_band.html" %}
+
+{% endblock %}

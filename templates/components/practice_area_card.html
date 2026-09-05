@@ -1,0 +1,40 @@
+{# Practice Area Card Component #}
+<div class="pa-card bg-white p-8 rounded-lg border border-charcoal-100 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group">
+  <div>
+    <!-- Icon -->
+    <div class="w-14 h-14 rounded bg-gold/10 text-gold group-hover:bg-gold group-hover:text-charcoal-900 transition-colors duration-300 flex items-center justify-center mb-6">
+      {% if area.icon_svg %}
+        <div class="w-7 h-7 flex items-center justify-center">
+          {{ area.icon_svg|safe }}
+        </div>
+      {% else %}
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+        </svg>
+      {% endif %}
+    </div>
+
+    <!-- Title -->
+    <h3 class="font-display text-xl font-bold text-charcoal-900 mb-3 group-hover:text-gold transition-colors duration-200">
+      <a href="{{ area.get_absolute_url }}">
+        {{ area.title }}
+      </a>
+    </h3>
+
+    <!-- Short Description -->
+    <p class="text-charcoal-600 text-sm leading-relaxed mb-6">
+      {{ area.short_description|truncatewords:28 }}
+    </p>
+  </div>
+
+  <!-- Read More Link -->
+  <div class="pt-4 border-t border-charcoal-100">
+    <a href="{{ area.get_absolute_url }}"
+       class="inline-flex items-center text-xs font-bold text-gold uppercase tracking-wider group-hover:text-gold-700 transition-colors duration-200">
+      Read More
+      <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+      </svg>
+    </a>
+  </div>
+</div>

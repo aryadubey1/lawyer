@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Chambers Gallery — {{ site_config.firm_name }}{% endblock %}
+{% block meta_description %}Photographic glimpses of {{ site_config.firm_name }}: courtroom appearances, conferences, office library, and events.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="bg-charcoal-900 text-off-white py-20 relative overflow-hidden border-b border-charcoal-800">
+  <div class="grain-overlay"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div data-reveal data-reveal-delay="0">
+      <span class="kicker kicker--center text-gold uppercase tracking-widest text-xs font-semibold mb-4">
+        Chambers & Events
+      </span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-off-white mt-2 mb-4 tracking-tight" data-reveal data-reveal-delay="80">
+      Photo Gallery
+    </h1>
+    <p class="text-charcoal-300 text-base sm:text-lg max-w-2xl mx-auto" data-reveal data-reveal-delay="160">
+      Moments from our professional practice, conferences, moot courts, and chambers.
+    </p>
+  </div>
+</section>
+
+<!-- Gallery Section with Alpine.js Tab Filtering & Lightbox -->
+<section class="py-20 bg-white"
+         x-data="galleryLightbox()"
+         x-init="initImages([
+           {% for img in gallery_images %}
+           {
+             src: '{% if img.image %}{{ img.thumbnail_url }}{% else %}https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80{% endif %}',
+             fullSrc: '{% if img.image %}{{ img.lightbox_url }}{% else %}https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80{% endif %}',
+             alt: '{{ img.alt_text|escapejs }}',
+             caption: '{{ img.caption|escapejs }}',
+             category: '{{ img.category }}',
+             categoryDisplay: '{{ img.get_category_display|escapejs }}'
+           }{% if not forloop.last %},{% endif %}
+           {% endfor %}
+         ])">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-16" data-reveal data-reveal-delay="80">
+      <button @click="setFilter('all')"
+              class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200"
+              :class="activeFilter === 'all' ? 'bg-gold text-charcoal-950 shadow-gold' : 'bg-off-white text-charcoal-700 hover:bg-charcoal-100 border border-charcoal-200'">
+        All Photos
+      </button>
+      {% for cat_val, cat_label in categories %}
+      <button @click="setFilter('{{ cat_val }}')"
+              class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200"
+              :class="activeFilter === '{{ cat_val }}' ? 'bg-gold text-charcoal-950 shadow-gold' : 'bg-off-white text-charcoal-700 hover:bg-charcoal-100 border border-charcoal-200'">
+        {{ cat_label }}
+      </button>
+      {% endfor %}
+    </div>
+
+    <!-- Gallery Masonry/Uniform Grid (Driven by Alpine.js filtered list) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" data-reveal data-reveal-delay="160">
+      <template x-for="(img, idx) in filteredImages" :key="idx">
+        <div class="gallery-item group relative h-72 rounded-lg overflow-hidden bg-charcoal-800 shadow-card cursor-pointer"
+             @click="open(idx, img.fullSrc, img.alt, img.caption)">
+          <img :src="img.src" :alt="img.alt" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+          <div class="overlay absolute inset-0 bg-charcoal-950/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+            <span class="text-xs uppercase font-bold text-gold tracking-widest" x-text="img.categoryDisplay"></span>
+            <p class="text-off-white text-sm font-medium line-clamp-2 mt-1" x-text="img.caption || img.alt"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <div x-show="filteredImages.length === 0" class="text-center py-16 text-charcoal-500">
+      No photographs in this category yet.
+    </div>
+
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div x-show="isOpen"
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0"
+       x-transition:enter-end="opacity-100"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100"
+       x-transition:leave-end="opacity-0"
+       class="lightbox"
+       style="display: none;"
+       @click.self="close()">
+
+    <button @click="close()" class="absolute top-6 right-6 text-off-white hover:text-gold text-3xl font-light z-50 p-2" aria-label="Close Lightbox">✕</button>
+    <button @click="prevImage()" class="absolute left-6 top-1/2 -translate-y-1/2 text-off-white hover:text-gold text-4xl font-light z-50 p-3 bg-charcoal-900/60 rounded-full" aria-label="Previous image">‹</button>
+    <button @click="nextImage()" class="absolute right-6 top-1/2 -translate-y-1/2 text-off-white hover:text-gold text-4xl font-light z-50 p-3 bg-charcoal-900/60 rounded-full" aria-label="Next image">›</button>
+
+    <div class="max-w-5xl max-h-[85vh] flex flex-col items-center">
+      <img :src="currentSrc" :alt="currentAlt" class="max-w-full max-h-[75vh] object-contain rounded shadow-2xl" />
+      <p x-show="currentCaption" x-text="currentCaption" class="text-charcoal-200 text-sm mt-4 text-center max-w-2xl"></p>
+    </div>
+  </div>
+
+</section>
+
+<!-- CTA Band -->
+{% include "components/cta_band.html" %}
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% load static %}
+{# Main sticky navbar with Practice Areas dropdown #}
+
+<nav id="main-navbar" class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+
+      <!-- Logo -->
+      <a href="{% url 'core:home' %}" class="flex items-center gap-3 flex-shrink-0" aria-label="{{ site_config.firm_name }} — Home">
+        <span class="font-display text-xl lg:text-2xl font-bold text-charcoal-900 tracking-tight">
+          <span class="text-gold">{{ site_config.firm_name_lead }}</span>{% if site_config.firm_name_rest %} {{ site_config.firm_name_rest }}{% endif %}
+        </span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-8">
+
+        <a href="{% url 'core:home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}nav-link--active{% endif %}">
+          Home
+        </a>
+
+        <a href="{% url 'about:about' %}" class="nav-link {% if request.resolver_match.namespace == 'about' %}nav-link--active{% endif %}">
+          About
+        </a>
+
+        <!-- Practice Areas Dropdown -->
+        <div class="relative" x-data="navDropdown()"
+             @mouseenter="openMenu()" @mouseleave="closeMenu()"
+             @keydown.escape.window="open = false">
+          <button class="nav-link flex items-center gap-1 {% if request.resolver_match.namespace == 'practice_areas' %}nav-link--active{% endif %}"
+                  @click="openMenu()"
+                  aria-haspopup="true" :aria-expanded="open">
+            Practice Areas
+            <svg class="w-4 h-4 transition-transform duration-200" :class="{'rotate-180': open}"
+                 fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <!-- Dropdown Panel -->
+          <div x-show="open"
+               x-transition:enter="transition ease-out duration-150"
+               x-transition:enter-start="opacity-0 translate-y-1"
+               x-transition:enter-end="opacity-100 translate-y-0"
+               x-transition:leave="transition ease-in duration-100"
+               x-transition:leave-start="opacity-100"
+               x-transition:leave-end="opacity-0"
+               @mouseenter="cancelClose()" @mouseleave="closeMenu()"
+               class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-white rounded-lg shadow-card-hover border border-charcoal-100 py-2 z-50"
+               role="menu">
+            {% for area in nav_practice_areas %}
+            <a href="{{ area.get_absolute_url }}"
+               class="block px-5 py-3 text-sm text-charcoal-700 hover:text-gold hover:bg-gold/5 transition-colors duration-150"
+               role="menuitem">
+              {{ area.title }}
+            </a>
+            {% empty %}
+            <span class="block px-5 py-3 text-sm text-charcoal-400 italic">No practice areas yet.</span>
+            {% endfor %}
+            <div class="border-t border-charcoal-100 mt-2 pt-2">
+              <a href="{% url 'practice_areas:list' %}"
+                 class="block px-5 py-2 text-xs text-gold font-semibold uppercase tracking-wide hover:underline"
+                 role="menuitem">
+                View All →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="{% url 'team:list' %}" class="nav-link {% if request.resolver_match.namespace == 'team' %}nav-link--active{% endif %}">
+          Our Team
+        </a>
+
+        <a href="{% url 'gallery:gallery' %}" class="nav-link {% if request.resolver_match.namespace == 'gallery' %}nav-link--active{% endif %}">
+          Gallery
+        </a>
+
+        <a href="{% url 'blog:list' %}" class="nav-link {% if request.resolver_match.namespace == 'blog' %}nav-link--active{% endif %}">
+          Blog
+        </a>
+
+        <a href="{% url 'contact:contact' %}" class="btn-gold-outline ml-4">
+          Contact Us
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button type="button"
+              class="lg:hidden p-2 rounded text-charcoal-700 hover:text-gold transition-colors min-h-11 min-w-11"
+              @click="toggle()"
+              :aria-expanded="open"
+              aria-controls="mobile-menu"
+              aria-label="Toggle mobile menu">
+        <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</nav>
