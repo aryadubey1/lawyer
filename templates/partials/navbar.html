@@ -7,6 +7,9 @@
 
       <!-- Logo -->
       <a href="{% url 'core:home' %}" class="flex items-center gap-3 flex-shrink-0" aria-label="{{ site_config.firm_name }} — Home">
+        {% if site_config.logo %}
+        <img src="{{ site_config.logo.url }}" alt="{{ site_config.firm_name }} logo" class="h-10 w-10 lg:h-12 lg:w-12 object-contain">
+        {% endif %}
         <span class="font-display text-xl lg:text-2xl font-bold text-charcoal-900 tracking-tight">
           <span class="text-gold">{{ site_config.firm_name_lead }}</span>{% if site_config.firm_name_rest %} {{ site_config.firm_name_rest }}{% endif %}
         </span>
