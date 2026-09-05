@@ -114,7 +114,7 @@
 
   /* ─── Topbar ──────────────────────────────────────────────────── */
   .topbar {
-    @apply bg-charcoal-900 text-charcoal-200 text-xs py-2;
+    @apply bg-charcoal-800 text-charcoal-300 text-xs py-1.5;
   }
 
   /* ─── Navbar ──────────────────────────────────────────────────── */
