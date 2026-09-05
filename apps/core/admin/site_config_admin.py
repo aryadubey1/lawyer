@@ -58,4 +58,4 @@ class SiteConfigAdmin(admin.ModelAdmin):
     def changelist_view(self, request, extra_context=None):
         """Redirect the changelist directly to the singleton instance."""
         obj = SiteConfig.get_solo()
-        return redirect(f'../{obj.pk}/change/')
+        return redirect(f'{obj.pk}/change/')
