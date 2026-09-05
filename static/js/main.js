@@ -195,11 +195,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }
 
   if ('IntersectionObserver' in window) {
-    const counterObserver = new IntersectionObserver((entries, observer) => {
+    const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           animateCounter(entry.target);
-          observer.unobserve(entry.target);
+        } else {
+          const suffix = entry.target.getAttribute('data-counter-suffix') || '';
+          entry.target.textContent = `0${suffix}`;
         }
       });
     }, {
